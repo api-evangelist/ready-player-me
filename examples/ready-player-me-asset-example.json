@@ -1,0 +1,19 @@
+{
+  "data": [
+    {
+      "id": "8989216",
+      "name": "Athleisure Outfit",
+      "type": "outfit",
+      "gender": "masculine",
+      "iconUrl": "https://api.readyplayer.me/v1/assets/8989216/thumbnail.png",
+      "modelUrl": "https://api.readyplayer.me/v1/assets/8989216.glb",
+      "applicationIds": ["6747968778427add008cc54d"]
+    }
+  ],
+  "pagination": {
+    "page": 1,
+    "limit": 16,
+    "totalPages": 12,
+    "totalDocs": 192
+  }
+}

@@ -1,0 +1,117 @@
+vocabulary: Ready Player Me
+description: |
+  Vocabulary, taxonomy, and concept mapping for the Ready Player Me cross-platform avatar API. Captures the
+  operational dimensions (avatars, assets, users, applications, renders) and the capability dimensions
+  (Avatar Creator, GLB rendering, PNG portrait scenes, asset categories, gender, body type) used across the
+  Avatars, Assets, and Auth APIs.
+created: '2026-05-25'
+modified: '2026-05-25'
+domains:
+  - id: avatars
+    name: Avatars
+    terms:
+      - id: avatar
+        term: Avatar
+        definition: A cross-platform 3D character composed of a base model plus equipped assets.
+      - id: draft-avatar
+        term: Draft Avatar
+        definition: An in-progress avatar that has not yet been saved as a permanent avatar.
+      - id: avatar-template
+        term: Avatar Template
+        definition: A pre-built starting point used to seed a new avatar.
+      - id: body-type
+        term: Body Type
+        definition: The form factor of the avatar — halfbody (head and shoulders) or fullbody.
+      - id: gender
+        term: Gender
+        definition: Avatar gender preset — masculine, feminine, or neutral.
+      - id: pose
+        term: Pose
+        definition: The default pose of the rendered avatar — A-pose or T-pose.
+      - id: morph-target
+        term: Morph Target
+        definition: A blendshape used for facial animation; ARKit, Oculus, and custom presets are supported.
+      - id: precompile
+        term: Precompile
+        definition: An operation that warms the render cache for a specific avatar / parameter combination.
+  - id: assets
+    name: Assets
+    terms:
+      - id: asset
+        term: Asset
+        definition: A wearable or base model that can be equipped on an avatar.
+      - id: hair
+        term: Hair
+      - id: beard
+        term: Beard
+      - id: outfit
+        term: Outfit
+      - id: headwear
+        term: Headwear
+      - id: facewear
+        term: Facewear
+      - id: glasses
+        term: Glasses
+      - id: footwear
+        term: Footwear
+      - id: costume
+        term: Costume
+      - id: custom-asset
+        term: Custom Asset
+      - id: base-model
+        term: Base Model
+        definition: The underlying body and head mesh of an avatar before wearables are equipped.
+  - id: rendering
+    name: Rendering
+    terms:
+      - id: glb
+        term: GLB
+        definition: Binary glTF, the canonical Ready Player Me runtime delivery format.
+      - id: mesh-lod
+        term: Mesh LOD
+        definition: Level of detail of the mesh — 0 (highest) to 2 (lowest).
+      - id: texture-atlas
+        term: Texture Atlas
+        definition: Combined texture map size, used to reduce draw calls.
+      - id: draco
+        term: Draco Compression
+        definition: Mesh compression standard supported on GLB renders.
+      - id: meshopt
+        term: Meshopt Compression
+        definition: Alternative mesh compression supported on GLB renders.
+      - id: portrait-scene
+        term: Portrait Scene
+        definition: Pre-built camera and lighting setup for PNG renders — portrait, halfbody, or fullbody.
+  - id: identity
+    name: Identity
+    terms:
+      - id: user
+        term: User
+        definition: A Ready Player Me end user; can be anonymous or email-authenticated.
+      - id: anonymous-user
+        term: Anonymous User
+      - id: application
+        term: Application
+        definition: A Studio application that consumes the Ready Player Me APIs; identified by X-APP-ID.
+      - id: subdomain
+        term: Studio Subdomain
+        definition: The per-application subdomain that handles authentication.
+  - id: integration
+    name: Integration Surfaces
+    terms:
+      - id: avatar-creator
+        term: Avatar Creator
+        definition: The web-hosted UI for creating and editing avatars; embedded via iframe or React.
+      - id: unity-sdk
+        term: Unity SDK
+      - id: unreal-sdk
+        term: Unreal SDK
+      - id: visage
+        term: Visage
+        definition: The official three.js / react-three-fiber web rendering library.
+      - id: react-avatar-creator
+        term: React Avatar Creator
+      - id: ios-sdk
+        term: iOS SDK
+      - id: android-sdk
+        term: Android SDK

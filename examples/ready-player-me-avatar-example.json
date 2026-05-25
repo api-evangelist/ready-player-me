@@ -1,0 +1,15 @@
+{
+  "id": "63c26702e5b9a435587fba51",
+  "partner": "demo",
+  "userId": "63c26701e5b9a435587fba50",
+  "bodyType": "fullbody",
+  "gender": "masculine",
+  "assets": {
+    "outfit": "8989216",
+    "hair": "8989217",
+    "headwear": null,
+    "glasses": null
+  },
+  "createdAt": "2026-04-12T14:21:03Z",
+  "updatedAt": "2026-04-12T14:25:11Z"
+}

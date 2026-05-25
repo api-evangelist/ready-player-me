@@ -1,0 +1,145 @@
+openapi: 3.0.3
+info:
+  title: Ready Player Me Auth API
+  description: |
+    Anonymous user creation, login, and token refresh used by the Avatar Creator and
+    Ready Player Me SDKs. Authentication is scoped per studio subdomain
+    (`<subdomain>.readyplayer.me`) so a single application can run isolated auth
+    flows for its end users.
+  version: "1.0"
+  contact:
+    name: Ready Player Me Developers
+    url: https://docs.readyplayer.me/
+servers:
+  - url: https://{subdomain}.readyplayer.me
+    description: Per-application subdomain endpoint
+    variables:
+      subdomain:
+        default: api
+        description: The studio subdomain that owns the auth flow.
+paths:
+  /api/users:
+    post:
+      summary: Create Anonymous User
+      operationId: createAnonymousUser
+      tags:
+        - Auth
+      responses:
+        '201':
+          description: Anonymous user created.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
+  /api/auth/start:
+    post:
+      summary: Start Login With Email Code
+      operationId: authStart
+      tags:
+        - Auth
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                email:
+                  type: string
+                  format: email
+      responses:
+        '200':
+          description: A login code has been emailed to the user.
+  /api/auth/login:
+    post:
+      summary: Confirm Login Code
+      operationId: authLogin
+      tags:
+        - Auth
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                email:
+                  type: string
+                code:
+                  type: string
+      responses:
+        '200':
+          description: Login successful.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AuthTokens'
+  /api/auth/refresh:
+    post:
+      summary: Refresh Auth Tokens
+      operationId: authRefresh
+      tags:
+        - Auth
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                token:
+                  type: string
+                refreshToken:
+                  type: string
+      responses:
+        '200':
+          description: New token pair issued.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AuthTokens'
+  /v1/auth/token:
+    post:
+      summary: Get Avatar Token
+      operationId: getAvatarToken
+      tags:
+        - Auth
+      description: Mint a short-lived token used to render or modify a specific avatar.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                data:
+                  type: object
+                  properties:
+                    partner:
+                      type: string
+      responses:
+        '200':
+          description: Avatar access token.
+components:
+  schemas:
+    User:
+      type: object
+      properties:
+        id:
+          type: string
+        token:
+          type: string
+        refreshToken:
+          type: string
+        partner:
+          type: string
+    AuthTokens:
+      type: object
+      properties:
+        token:
+          type: string
+        refreshToken:
+          type: string
+tags:
+  - name: Auth
+    description: User authentication and token management.

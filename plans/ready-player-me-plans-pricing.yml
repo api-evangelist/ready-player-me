@@ -1,0 +1,84 @@
+specification: API Commons Plans
+specificationVersion: '0.1'
+schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main/schema/api-commons.yml#/$defs/Plans
+provider: Ready Player Me
+providerId: ready-player-me
+created: '2026-05-25'
+modified: '2026-05-25'
+reconciled: false
+tags:
+  - Avatars
+  - 3D
+  - Gaming
+description: Ready Player Me commercial plans for the Avatar Creator and Avatars / Assets APIs. Self-serve
+  pricing is published per studio application; enterprise contracts cover custom asset libraries, custom
+  body types, and post-acquisition support.
+sources:
+  - https://readyplayer.me/developers
+  - https://docs.readyplayer.me/
+plans:
+  - id: ready-player-me-free
+    name: Free
+    type: free
+    description: Self-serve plan with the standard Ready Player Me asset library, Avatar Creator iframe,
+      and free GLB / PNG renders for early-stage games and apps.
+    entries:
+      - label: Active users
+        name: active-users
+        type: tier
+        metric: user
+        timeFrame: month
+        geo: global
+        unit: 1
+        price: 'Free'
+        userMultiplied: false
+        description: Tier-limited monthly active users before upgrade is required.
+    elements:
+      - name: Ready Player Me Avatar Creator
+      - name: Standard asset library
+      - name: GLB and PNG renders via api.readyplayer.me
+      - name: Unity, Unreal, web, iOS, Android SDKs
+      - name: Studio access for branding and configuration
+  - id: ready-player-me-studio
+    name: Studio
+    type: usage-based
+    description: Paid self-serve plan unlocking higher monthly active users, custom asset uploads, custom
+      base models, and brand-customized Avatar Creator surfaces.
+    entries:
+      - label: Active users
+        name: active-users
+        type: metered
+        metric: user
+        timeFrame: month
+        geo: global
+        unit: 1
+        price: 'Quote'
+        userMultiplied: true
+        description: Pricing scales with monthly active avatars per application.
+    elements:
+      - name: Higher monthly active user tiers
+      - name: Custom asset uploads
+      - name: Custom base models and outfits
+      - name: Branded Avatar Creator iframe / SDK theming
+      - name: Webhook events for avatar lifecycle
+  - id: ready-player-me-enterprise
+    name: Enterprise
+    type: contract
+    description: Custom contract for AAA studios, large social platforms, and enterprise customers with
+      bespoke avatar, asset, and integration requirements.
+    entries:
+      - label: Enterprise contract
+        name: enterprise
+        type: contract
+        metric: contract
+        timeFrame: year
+        geo: global
+        unit: 1
+        price: 'Call'
+        userMultiplied: false
+    elements:
+      - name: Custom asset and outfit production
+      - name: Bespoke body types and rig variants
+      - name: Dedicated solutions engineering
+      - name: SSO and SOC 2 controls
+      - name: Co-marketing and licensing arrangements

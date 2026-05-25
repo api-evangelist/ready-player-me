@@ -1,0 +1,58 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/ready-player-me/main/json-schema/ready-player-me-asset-schema.json",
+  "title": "Ready Player Me Asset",
+  "description": "A wearable or base-model asset that can be equipped on a Ready Player Me avatar.",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "name": {
+      "type": "string"
+    },
+    "type": {
+      "type": "string",
+      "enum": [
+        "hair",
+        "beard",
+        "outfit",
+        "shirt",
+        "top",
+        "bottom",
+        "footwear",
+        "headwear",
+        "facewear",
+        "glasses",
+        "costume",
+        "custom",
+        "baseModel"
+      ]
+    },
+    "gender": {
+      "type": "string",
+      "enum": ["masculine", "feminine", "neutral"]
+    },
+    "iconUrl": {
+      "type": "string",
+      "format": "uri"
+    },
+    "modelUrl": {
+      "type": "string",
+      "format": "uri"
+    },
+    "applicationIds": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "campaignIds": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  },
+  "required": ["id", "type"]
+}

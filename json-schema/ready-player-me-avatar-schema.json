@@ -1,0 +1,45 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/ready-player-me/main/json-schema/ready-player-me-avatar-schema.json",
+  "title": "Ready Player Me Avatar",
+  "description": "A Ready Player Me cross-platform 3D avatar.",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "Unique avatar identifier."
+    },
+    "partner": {
+      "type": "string",
+      "description": "Application or partner subdomain that created the avatar."
+    },
+    "userId": {
+      "type": "string",
+      "description": "Identifier of the user that owns the avatar."
+    },
+    "bodyType": {
+      "type": "string",
+      "enum": ["halfbody", "fullbody"]
+    },
+    "gender": {
+      "type": "string",
+      "enum": ["masculine", "feminine", "neutral"]
+    },
+    "assets": {
+      "type": "object",
+      "description": "Map of asset category to asset id (e.g. hair, outfit, headwear).",
+      "additionalProperties": {
+        "type": "string"
+      }
+    },
+    "createdAt": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "updatedAt": {
+      "type": "string",
+      "format": "date-time"
+    }
+  },
+  "required": ["id"]
+}

@@ -1,0 +1,59 @@
+specification: API Commons Rate Limits
+specificationVersion: '0.1'
+schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main/schema/api-commons.yml#/$defs/RateLimits
+provider: Ready Player Me
+providerId: ready-player-me
+created: '2026-05-25'
+modified: '2026-05-25'
+reconciled: false
+tags:
+  - Avatars
+  - Rate Limits
+description: Ready Player Me does not publish a globally-fixed rate-limit table. Limits are applied per
+  application (X-APP-ID), per endpoint family, and per asset/avatar render to protect the shared rendering
+  fleet. The values below capture observed and documented patterns for the Avatars and Assets surfaces.
+sources:
+  - https://docs.readyplayer.me/
+policies:
+  - id: ready-player-me-avatar-render
+    name: Avatar Render
+    appliesTo:
+      - /v1/avatars/{avatarId}.glb
+      - /v1/avatars/{avatarId}.png
+      - /v2/avatars/{avatarId}.glb
+    scope: application
+    limits:
+      - type: concurrency
+        description: Concurrent render requests per application are throttled by the rendering fleet to
+          protect shared infrastructure. Use precompile and CDN-cacheable URLs to avoid burst storms.
+        metric: concurrent-requests
+        unit: requests
+        observed: true
+  - id: ready-player-me-asset-listing
+    name: Asset Listing
+    appliesTo:
+      - /v1/assets
+      - /v1/phoenix-assets
+    scope: application
+    limits:
+      - type: request-rate
+        description: Asset listing endpoints accept paginated reads. Heavy listing should be cached by the
+          integrator; sustained high-rate listing across all pages can be throttled.
+        metric: requests
+        unit: requests
+        observed: true
+  - id: ready-player-me-avatar-mutation
+    name: Avatar Mutation
+    appliesTo:
+      - POST /v2/avatars
+      - PATCH /v2/avatars/{avatarId}
+      - PUT /v2/avatars/{avatarId}
+      - DELETE /v2/avatars/{avatarId}
+    scope: user
+    limits:
+      - type: request-rate
+        description: Avatar mutation is bound to interactive user flows; sustained scripted writes can
+          trigger anti-abuse throttling.
+        metric: requests
+        unit: requests
+        observed: true

@@ -1,0 +1,125 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Ready Player Me Avatars API — Rendering
+  description: Ready Player Me Avatars API rendering operations. Self-contained Naftiko capability covering
+    GLB model retrieval (with LOD, atlas, morph target, compression options) and 2D PNG portrait renders.
+  tags:
+  - Ready Player Me
+  - Avatars
+  - Rendering
+  - GLB
+  created: '2026-05-25'
+  modified: '2026-05-25'
+binds:
+- namespace: env
+  keys:
+    RPM_APP_ID: RPM_APP_ID
+capability:
+  consumes:
+  - type: http
+    namespace: avatars-rendering
+    baseUri: https://api.readyplayer.me
+    description: Ready Player Me Avatars API rendering business capability.
+    headers:
+      X-APP-ID: ${env.RPM_APP_ID}
+    resources:
+    - name: avatar-glb
+      path: /v1/avatars/{avatarId}.glb
+      operations:
+      - name: getavatarglb
+        method: GET
+        description: Get the GLB model for an avatar with optional optimization parameters.
+        inputParameters:
+        - name: avatarId
+          in: path
+          type: string
+          required: true
+        - name: pose
+          in: query
+          type: string
+        - name: meshLod
+          in: query
+          type: integer
+        - name: textureAtlas
+          in: query
+          type: string
+        - name: textureSizeLimit
+          in: query
+          type: integer
+        - name: textureChannels
+          in: query
+          type: string
+        - name: morphTargets
+          in: query
+          type: string
+        - name: useHands
+          in: query
+          type: boolean
+        - name: useDracoMeshCompression
+          in: query
+          type: boolean
+        - name: useMeshOptCompression
+          in: query
+          type: boolean
+    - name: avatar-png
+      path: /v1/avatars/{avatarId}.png
+      operations:
+      - name: getavatarpng
+        method: GET
+        description: Get a 2D PNG portrait render of an avatar.
+        inputParameters:
+        - name: avatarId
+          in: path
+          type: string
+          required: true
+        - name: scene
+          in: query
+          type: string
+        - name: w
+          in: query
+          type: integer
+        - name: h
+          in: query
+          type: integer
+    - name: avatar-v2-glb
+      path: /v2/avatars/{avatarId}.glb
+      operations:
+      - name: getavatarglbv2
+        method: GET
+        description: Get the V2 GLB model for an avatar.
+        inputParameters:
+        - name: avatarId
+          in: path
+          type: string
+          required: true
+        - name: preview
+          in: query
+          type: boolean
+    - name: avatar-user-list
+      path: /v1/avatars
+      operations:
+      - name: listuseravatars
+        method: GET
+        description: List avatars owned by a user.
+        inputParameters:
+        - name: userId
+          in: query
+          type: string
+          required: true
+        - name: select
+          in: query
+          type: string
+    - name: avatar-colors
+      path: /v2/avatars/{avatarId}/colors
+      operations:
+      - name: getavatarcolors
+        method: GET
+        description: Get the avatar's color palette options.
+        inputParameters:
+        - name: avatarId
+          in: path
+          type: string
+          required: true
+        - name: type
+          in: query
+          type: string

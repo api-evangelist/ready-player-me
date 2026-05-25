@@ -1,0 +1,51 @@
+extends: [[spectral:oas, all]]
+rules:
+  rpm-info-contact:
+    description: Ready Player Me OpenAPI specs must declare a contact block.
+    severity: warn
+    given: $.info
+    then:
+      field: contact
+      function: truthy
+  rpm-info-description:
+    description: Ready Player Me OpenAPI specs must declare a non-empty description.
+    severity: warn
+    given: $.info
+    then:
+      field: description
+      function: truthy
+  rpm-app-id-security:
+    description: Ready Player Me APIs are scoped per application via the X-APP-ID header security scheme.
+    severity: warn
+    given: $.components.securitySchemes
+    then:
+      function: truthy
+  rpm-server-host:
+    description: Ready Player Me API servers should use the api.readyplayer.me host or a per-application
+      subdomain of readyplayer.me.
+    severity: warn
+    given: $.servers[*].url
+    then:
+      function: pattern
+      functionOptions:
+        match: "(api\\.readyplayer\\.me|readyplayer\\.me)"
+  rpm-operation-summary-title-case:
+    description: Ready Player Me operation summaries should use Title Case.
+    severity: warn
+    given: $.paths[*][get,post,put,patch,delete,options,head].summary
+    then:
+      function: pattern
+      functionOptions:
+        match: "^([A-Z][a-zA-Z0-9]*)( [A-Z][a-zA-Z0-9]*)*( [Aa]| [Aa]n| [Tt]he| [Oo]f| [Ff]or| [Ww]ith)?( [A-Z][a-zA-Z0-9]*)*$"
+  rpm-tag-presence:
+    description: Operations must be tagged for navigation.
+    severity: warn
+    given: $.paths[*][get,post,put,patch,delete].tags
+    then:
+      function: truthy
+  rpm-glb-content-type:
+    description: GLB responses should be served as model/gltf-binary.
+    severity: info
+    given: $.paths[*][get].responses['200'].content
+    then:
+      function: truthy

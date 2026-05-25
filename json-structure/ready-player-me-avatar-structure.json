@@ -1,0 +1,43 @@
+{
+  "$schema": "https://json-structure.org/schema/v0",
+  "$id": "ready-player-me-avatar-structure.json",
+  "title": "Ready Player Me Avatar — JSON Structure",
+  "description": "Structural overview of the Ready Player Me Avatar object as exposed by /v2/avatars endpoints.",
+  "type": "object",
+  "fields": {
+    "id": {
+      "type": "string",
+      "description": "Avatar identifier (24-character hex)."
+    },
+    "partner": {
+      "type": "string",
+      "description": "Studio application or partner that owns the avatar."
+    },
+    "userId": {
+      "type": "string",
+      "description": "Owner user identifier."
+    },
+    "bodyType": {
+      "type": "enum",
+      "values": ["halfbody", "fullbody"]
+    },
+    "gender": {
+      "type": "enum",
+      "values": ["masculine", "feminine", "neutral"]
+    },
+    "assets": {
+      "type": "map",
+      "keyDescription": "Asset category (hair, outfit, headwear, glasses, etc.)",
+      "valueType": "string",
+      "valueDescription": "Asset identifier."
+    },
+    "createdAt": {
+      "type": "datetime",
+      "format": "RFC 3339"
+    },
+    "updatedAt": {
+      "type": "datetime",
+      "format": "RFC 3339"
+    }
+  }
+}

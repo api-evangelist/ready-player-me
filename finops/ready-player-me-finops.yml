@@ -1,0 +1,62 @@
+specification: FinOps Framework Alignment
+specificationVersion: '0.1'
+schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main/schema/api-commons.yml#/$defs/FinOps
+provider: Ready Player Me
+providerId: ready-player-me
+created: '2026-05-25'
+modified: '2026-05-25'
+description: |
+  FinOps alignment for the Ready Player Me commercial surface. Cost drivers are monthly active avatar
+  users (MAU) per application, custom asset uploads, custom base-model production, and per-render network
+  egress. Ready Player Me does not publish a FOCUS-compatible billing feed; usage data is currently
+  observable only through the Studio dashboard.
+sources:
+  - https://readyplayer.me/developers
+  - https://docs.readyplayer.me/
+costDrivers:
+  - id: monthly-active-avatars
+    name: Monthly Active Avatars
+    description: Number of unique avatar IDs touched per application per month. The dominant cost driver
+      on usage-based Studio plans.
+    metric: avatars
+    unit: avatar
+    timeFrame: month
+  - id: custom-assets
+    name: Custom Asset Production
+    description: Bespoke wearables, hair, outfits, and accessories produced by Ready Player Me art teams
+      for an application.
+    metric: assets
+    unit: asset
+    timeFrame: contract
+  - id: custom-base-models
+    name: Custom Base Models
+    description: Custom body types, art-style rigs, or studio-specific base models requiring engineering
+      and art bandwidth.
+    metric: models
+    unit: model
+    timeFrame: contract
+  - id: render-egress
+    name: Render Egress
+    description: PNG and GLB egress from api.readyplayer.me and models.readyplayer.me. Cached at CDN level
+      with cacheControl=true.
+    metric: bytes
+    unit: bytes
+    timeFrame: month
+focus:
+  alignment: partial
+  notes: Ready Player Me does not publish a FOCUS-compliant billing export. Cost data is surfaced through
+    the Studio dashboard and enterprise contracts. Integrators that need FinOps-grade chargeback should
+    capture render and mutation counts at their proxy layer.
+recommendations:
+  - id: cache-renders
+    name: Cache GLB and PNG renders
+    description: Always set cacheControl=true and let the CDN absorb repeated reads. Per-render egress is
+      one of the few visible cost drivers that integrators control directly.
+  - id: precompile-warm
+    name: Precompile warm renders
+    description: Use POST /v2/avatars/{avatarId}/precompile after avatar save to warm CDN caches before
+      first user view.
+  - id: filter-assets-aggressively
+    name: Filter assets aggressively
+    description: Pass filter=usable-by-user-and-app with filterApplicationId and filterUserId on every
+      asset listing to keep per-application catalogs scoped and small.

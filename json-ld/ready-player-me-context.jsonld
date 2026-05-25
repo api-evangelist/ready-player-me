@@ -1,0 +1,32 @@
+{
+  "@context": {
+    "@version": 1.1,
+    "schema": "https://schema.org/",
+    "rpm": "https://raw.githubusercontent.com/api-evangelist/ready-player-me/main/json-ld/ready-player-me-context.jsonld#",
+
+    "Avatar": "rpm:Avatar",
+    "Asset": "rpm:Asset",
+    "AvatarTemplate": "rpm:AvatarTemplate",
+    "User": "schema:Person",
+    "Application": "schema:SoftwareApplication",
+
+    "id": "@id",
+    "type": "@type",
+    "name": "schema:name",
+    "description": "schema:description",
+    "url": {"@id": "schema:url", "@type": "@id"},
+    "image": {"@id": "schema:image", "@type": "@id"},
+
+    "partner": "rpm:partner",
+    "userId": "rpm:userId",
+    "bodyType": "rpm:bodyType",
+    "gender": "schema:gender",
+    "assets": {"@id": "rpm:assets", "@container": "@index"},
+    "iconUrl": {"@id": "schema:thumbnailUrl", "@type": "@id"},
+    "modelUrl": {"@id": "rpm:modelUrl", "@type": "@id"},
+    "applicationIds": {"@id": "rpm:applicationIds", "@container": "@set"},
+
+    "createdAt": {"@id": "schema:dateCreated", "@type": "schema:DateTime"},
+    "updatedAt": {"@id": "schema:dateModified", "@type": "schema:DateTime"}
+  }
+}
