@@ -1,0 +1,361 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Ready Player Me Avatars API",
+    "version": "2.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "X-APP-ID",
+      "value": "{{X-APP-ID}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Avatars",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Create A Draft Avatar",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.readyplayer.me/v2/avatars",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create A Draft Avatar"
+        },
+        {
+          "info": {
+            "name": "List Avatar Templates",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.readyplayer.me/v2/avatars/templates"
+          },
+          "docs": "List Avatar Templates"
+        },
+        {
+          "info": {
+            "name": "Create Avatar From Template",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.readyplayer.me/v2/avatars/templates/:templateId",
+            "params": [
+              {
+                "name": "templateId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create Avatar From Template"
+        },
+        {
+          "info": {
+            "name": "Get Avatar Metadata",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.readyplayer.me/v2/avatars/:avatarId",
+            "params": [
+              {
+                "name": "avatarId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get Avatar Metadata"
+        },
+        {
+          "info": {
+            "name": "Save Draft Avatar",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.readyplayer.me/v2/avatars/:avatarId",
+            "params": [
+              {
+                "name": "avatarId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Save Draft Avatar"
+        },
+        {
+          "info": {
+            "name": "Update Avatar Equipped Assets",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://api.readyplayer.me/v2/avatars/:avatarId",
+            "params": [
+              {
+                "name": "avatarId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "responseType",
+                "value": "",
+                "type": "query"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update Avatar Equipped Assets"
+        },
+        {
+          "info": {
+            "name": "Delete Avatar",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.readyplayer.me/v2/avatars/:avatarId",
+            "params": [
+              {
+                "name": "avatarId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Delete Avatar"
+        },
+        {
+          "info": {
+            "name": "Delete Avatar Draft",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.readyplayer.me/v2/avatars/:avatarId/draft",
+            "params": [
+              {
+                "name": "avatarId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Delete Avatar Draft"
+        },
+        {
+          "info": {
+            "name": "Precompile Avatar Render",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.readyplayer.me/v2/avatars/:avatarId/precompile",
+            "params": [
+              {
+                "name": "avatarId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Warm the asset cache for a specific avatar / parameter combination."
+        },
+        {
+          "info": {
+            "name": "Get Avatar Color Palette",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.readyplayer.me/v2/avatars/:avatarId/colors",
+            "params": [
+              {
+                "name": "avatarId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "type",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Get Avatar Color Palette"
+        },
+        {
+          "info": {
+            "name": "List Avatars For A User",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.readyplayer.me/v1/avatars",
+            "params": [
+              {
+                "name": "userId",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "select",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "List Avatars For A User"
+        },
+        {
+          "info": {
+            "name": "Get Avatar GLB Model",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.readyplayer.me/v1/avatars/:avatarId.glb",
+            "params": [
+              {
+                "name": "avatarId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "pose",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "meshLod",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "textureAtlas",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "textureSizeLimit",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "textureChannels",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "morphTargets",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "useHands",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "useDracoMeshCompression",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "useMeshOptCompression",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Get Avatar GLB Model"
+        },
+        {
+          "info": {
+            "name": "Get 2D Avatar Render",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.readyplayer.me/v1/avatars/:avatarId.png",
+            "params": [
+              {
+                "name": "avatarId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "scene",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "w",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "h",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "cacheControl",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Get 2D Avatar Render"
+        },
+        {
+          "info": {
+            "name": "Get V2 Avatar GLB Model",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.readyplayer.me/v2/avatars/:avatarId.glb",
+            "params": [
+              {
+                "name": "avatarId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "preview",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Get V2 Avatar GLB Model"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

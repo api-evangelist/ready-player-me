@@ -1,0 +1,89 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Ready Player Me Auth API",
+    "version": "1.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Auth",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Create Anonymous User",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{subdomain}.readyplayer.me/api/users"
+          },
+          "docs": "Create Anonymous User"
+        },
+        {
+          "info": {
+            "name": "Start Login With Email Code",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{subdomain}.readyplayer.me/api/auth/start",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Start Login With Email Code"
+        },
+        {
+          "info": {
+            "name": "Confirm Login Code",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{subdomain}.readyplayer.me/api/auth/login",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Confirm Login Code"
+        },
+        {
+          "info": {
+            "name": "Refresh Auth Tokens",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{subdomain}.readyplayer.me/api/auth/refresh",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Refresh Auth Tokens"
+        },
+        {
+          "info": {
+            "name": "Get Avatar Token",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{subdomain}.readyplayer.me/v1/auth/token",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Mint a short-lived token used to render or modify a specific avatar."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

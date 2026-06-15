@@ -1,0 +1,1490 @@
+{
+  "item": [
+    {
+      "id": "3c2cd14e-1734-4b59-b1f5-6c348bd61b93",
+      "name": "Avatars",
+      "description": {
+        "content": "Avatar creation, asset equipping, render, and lifecycle operations.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "553f7344-4023-449a-90a6-9cc265b07a4d",
+          "name": "Create A Draft Avatar",
+          "request": {
+            "name": "Create A Draft Avatar",
+            "description": {},
+            "url": {
+              "path": [
+                "v2",
+                "avatars"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"data\": {\n    \"partner\": \"<string>\",\n    \"bodyType\": \"<string>\",\n    \"gender\": \"<string>\",\n    \"assets\": \"<object>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "88af6152-20fe-4353-894b-360c0fd1ebe7",
+              "name": "Draft avatar created.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "avatars"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-APP-ID",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"data\": {\n    \"partner\": \"<string>\",\n    \"bodyType\": \"<string>\",\n    \"gender\": \"<string>\",\n    \"assets\": \"<object>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"partner\": \"string\",\n  \"userId\": \"string\",\n  \"bodyType\": \"fullbody\",\n  \"gender\": \"feminine\",\n  \"assets\": {\n    \"key_0\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "3cb36014-510a-4832-a7c2-32db78316a74",
+          "name": "List Avatar Templates",
+          "request": {
+            "name": "List Avatar Templates",
+            "description": {},
+            "url": {
+              "path": [
+                "v2",
+                "avatars",
+                "templates"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "c6dbc738-1d9b-498c-9246-01ff3938f38f",
+              "name": "A list of available avatar templates.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "avatars",
+                    "templates"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-APP-ID",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"id\": \"string\",\n    \"imageUrl\": \"string\",\n    \"gender\": \"string\"\n  },\n  {\n    \"id\": \"string\",\n    \"imageUrl\": \"string\",\n    \"gender\": \"string\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "796c604d-7709-4cb1-8f21-669b338bf5df",
+          "name": "Create Avatar From Template",
+          "request": {
+            "name": "Create Avatar From Template",
+            "description": {},
+            "url": {
+              "path": [
+                "v2",
+                "avatars",
+                "templates",
+                ":templateId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "templateId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"data\": {\n    \"partner\": \"<string>\",\n    \"bodyType\": \"<string>\",\n    \"gender\": \"<string>\",\n    \"assets\": \"<object>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "c7e4d1b1-2c20-4c12-a482-68bf66a64f58",
+              "name": "Avatar created from template.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "avatars",
+                    "templates",
+                    ":templateId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "templateId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-APP-ID",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"data\": {\n    \"partner\": \"<string>\",\n    \"bodyType\": \"<string>\",\n    \"gender\": \"<string>\",\n    \"assets\": \"<object>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"partner\": \"string\",\n  \"userId\": \"string\",\n  \"bodyType\": \"fullbody\",\n  \"gender\": \"feminine\",\n  \"assets\": {\n    \"key_0\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "1d66230b-c277-4610-bd4e-cd3f9060804b",
+          "name": "Get Avatar Metadata",
+          "request": {
+            "name": "Get Avatar Metadata",
+            "description": {},
+            "url": {
+              "path": [
+                "v2",
+                "avatars",
+                ":avatarId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "avatarId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "afac6c7f-2c83-487e-a7c4-23fcd81f0a25",
+              "name": "Avatar metadata JSON.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "avatars",
+                    ":avatarId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "avatarId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-APP-ID",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"partner\": \"string\",\n  \"userId\": \"string\",\n  \"bodyType\": \"fullbody\",\n  \"gender\": \"feminine\",\n  \"assets\": {\n    \"key_0\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "c5e924cf-8fd7-4d45-8aa2-337c383146ec",
+          "name": "Update Avatar Equipped Assets",
+          "request": {
+            "name": "Update Avatar Equipped Assets",
+            "description": {},
+            "url": {
+              "path": [
+                "v2",
+                "avatars",
+                ":avatarId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "responseType",
+                  "value": "<string>"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "avatarId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "PATCH",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"data\": {\n    \"assets\": {\n      \"key_0\": \"<string>\",\n      \"key_1\": \"<string>\"\n    }\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "f24b3eb6-2130-4be1-b3e0-4e86533cfd54",
+              "name": "Avatar updated.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "avatars",
+                    ":avatarId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "responseType",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "avatarId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-APP-ID",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"data\": {\n    \"assets\": {\n      \"key_0\": \"<string>\"\n    }\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "1f785149-11fb-4a53-a441-e05a9b9e4c51",
+          "name": "Save Draft Avatar",
+          "request": {
+            "name": "Save Draft Avatar",
+            "description": {},
+            "url": {
+              "path": [
+                "v2",
+                "avatars",
+                ":avatarId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "avatarId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "PUT",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "3f5614d9-7432-433f-9389-c6ef3b52a103",
+              "name": "Draft avatar saved as a permanent avatar.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "avatars",
+                    ":avatarId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "avatarId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-APP-ID",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "PUT",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "b18bfb37-8155-4950-afc5-22b6cd61ae75",
+          "name": "Delete Avatar",
+          "request": {
+            "name": "Delete Avatar",
+            "description": {},
+            "url": {
+              "path": [
+                "v2",
+                "avatars",
+                ":avatarId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "avatarId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "2ea8ef93-ef7f-4cef-ab33-144af8d39370",
+              "name": "Avatar deleted.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "avatars",
+                    ":avatarId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "avatarId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-APP-ID",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "73e0b7f2-a204-4924-8535-3d9bd91e9c7e",
+          "name": "Delete Avatar Draft",
+          "request": {
+            "name": "Delete Avatar Draft",
+            "description": {},
+            "url": {
+              "path": [
+                "v2",
+                "avatars",
+                ":avatarId",
+                "draft"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "avatarId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "27a66b0e-fc2e-4567-9b2b-4f74944a888f",
+              "name": "Avatar draft discarded.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "avatars",
+                    ":avatarId",
+                    "draft"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "avatarId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-APP-ID",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "86d9f7c1-c048-461e-aaed-ec0e42f8ea52",
+          "name": "Precompile Avatar Render",
+          "request": {
+            "name": "Precompile Avatar Render",
+            "description": {
+              "content": "Warm the asset cache for a specific avatar / parameter combination.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v2",
+                "avatars",
+                ":avatarId",
+                "precompile"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "avatarId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "POST",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "1d29732b-3597-489e-ade2-0183076ad3fd",
+              "name": "Precompile accepted.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "avatars",
+                    ":avatarId",
+                    "precompile"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "avatarId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-APP-ID",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "c956c314-0234-4154-8cb2-c9177d6cc32e",
+          "name": "Get Avatar Color Palette",
+          "request": {
+            "name": "Get Avatar Color Palette",
+            "description": {},
+            "url": {
+              "path": [
+                "v2",
+                "avatars",
+                ":avatarId",
+                "colors"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "type",
+                  "value": "<string>"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "avatarId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "aa5ea970-8462-4e98-bf4d-789b7711b74a",
+              "name": "Avatar color palette.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "avatars",
+                    ":avatarId",
+                    "colors"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "type",
+                      "value": "skin,beard,hair,eyebrow"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "avatarId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-APP-ID",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": {\n    \"key_0\": [\n      \"string\",\n      \"string\"\n    ],\n    \"key_1\": [\n      \"string\",\n      \"string\"\n    ],\n    \"key_2\": [\n      \"string\",\n      \"string\"\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "1e4c70bd-12f8-478b-9a75-5cb163e5c348",
+          "name": "List Avatars For A User",
+          "request": {
+            "name": "List Avatars For A User",
+            "description": {},
+            "url": {
+              "path": [
+                "v1",
+                "avatars"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "userId",
+                  "value": "<string>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "select",
+                  "value": "<string>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "74ceb50d-43a7-4bc4-b40d-883d3d6c2d6c",
+              "name": "A list of avatars owned by the user.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "avatars"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "userId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "select",
+                      "value": "id,partner"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-APP-ID",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"id\": \"string\",\n    \"partner\": \"string\",\n    \"userId\": \"string\",\n    \"bodyType\": \"fullbody\",\n    \"gender\": \"neutral\",\n    \"assets\": {\n      \"key_0\": \"string\",\n      \"key_1\": \"string\",\n      \"key_2\": \"string\",\n      \"key_3\": \"string\"\n    }\n  },\n  {\n    \"id\": \"string\",\n    \"partner\": \"string\",\n    \"userId\": \"string\",\n    \"bodyType\": \"halfbody\",\n    \"gender\": \"neutral\",\n    \"assets\": {\n      \"key_0\": \"string\",\n      \"key_1\": \"string\"\n    }\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "7708d0e9-adb3-46d0-af57-fe1b5b0470da",
+          "name": "Get Avatar GLB Model",
+          "request": {
+            "name": "Get Avatar GLB Model",
+            "description": {},
+            "url": {
+              "path": [
+                "v1",
+                "avatars",
+                "{{avatarId}}.glb"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "pose",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "meshLod",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "textureAtlas",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "textureSizeLimit",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "textureChannels",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "morphTargets",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "useHands",
+                  "value": "<boolean>"
+                },
+                {
+                  "disabled": false,
+                  "key": "useDracoMeshCompression",
+                  "value": "<boolean>"
+                },
+                {
+                  "disabled": false,
+                  "key": "useMeshOptCompression",
+                  "value": "<boolean>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "model/gltf-binary"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "35b7f4c0-3f3f-496e-81a8-ea6332f2784b",
+              "name": "Binary glTF avatar model.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "avatars",
+                    "{{avatarId}}.glb"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "pose",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "meshLod",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "textureAtlas",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "textureSizeLimit",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "textureChannels",
+                      "value": "baseColor,normal,metallicRoughness,emissive,occlusion"
+                    },
+                    {
+                      "key": "morphTargets",
+                      "value": "ARKit"
+                    },
+                    {
+                      "key": "useHands",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "useDracoMeshCompression",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "useMeshOptCompression",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-APP-ID",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "model/gltf-binary"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "model/gltf-binary"
+                }
+              ],
+              "body": "string",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "167e478d-93d5-41ed-9f59-89bbc3fbb4ea",
+          "name": "Get 2D Avatar Render",
+          "request": {
+            "name": "Get 2D Avatar Render",
+            "description": {},
+            "url": {
+              "path": [
+                "v1",
+                "avatars",
+                "{{avatarId}}.png"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "scene",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "w",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "h",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "cacheControl",
+                  "value": "<boolean>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "image/png"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "7bc70c79-863f-40d3-8b8a-05444d685c57",
+              "name": "PNG render of the avatar.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "avatars",
+                    "{{avatarId}}.png"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "scene",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "w",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "h",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "cacheControl",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-APP-ID",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "image/png"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "image/png"
+                }
+              ],
+              "body": "string",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "9f52da7f-213f-43bd-b74a-766e88829bb4",
+          "name": "Get V2 Avatar GLB Model",
+          "request": {
+            "name": "Get V2 Avatar GLB Model",
+            "description": {},
+            "url": {
+              "path": [
+                "v2",
+                "avatars",
+                "{{avatarId}}.glb"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "preview",
+                  "value": "<boolean>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "model/gltf-binary"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "70155cf2-5832-4eea-afd5-d4710e952636",
+              "name": "Binary glTF avatar model.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "avatars",
+                    "{{avatarId}}.glb"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "preview",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-APP-ID",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "model/gltf-binary"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "model/gltf-binary"
+                }
+              ],
+              "body": "string",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.readyplayer.me",
+      "key": "baseUrl"
+    },
+    {
+      "disabled": false,
+      "description": {
+        "content": "(Required) ",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "<string>",
+      "key": "avatarId"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "X-APP-ID"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "3b8c0e00-1a86-4db3-bf0e-d741033657db",
+    "name": "Ready Player Me Avatars API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Create, retrieve, update, and delete Ready Player Me cross-platform avatars. The\nAvatars API exposes the avatar lifecycle behind the Avatar Creator, including\ntemplate-based creation, asset equipping, draft management, and GLB / PNG renders\nused by games and applications across Unity, Unreal, web, iOS, and Android.\n\nAvatars are addressable as binary glTF (`.glb`) for runtime use and as 2D PNG\nrenders for thumbnails, headshots, busts, half-body, and full-body portrait\nscenes. The v2 surface adds drafts, templates, colors, and precompile.\n\n\nContact Support:\n Name: Ready Player Me Developers\n Email: support@readyplayer.me",
+      "type": "text/plain"
+    }
+  }
+}

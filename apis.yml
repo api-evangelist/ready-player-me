@@ -1,164 +1,157 @@
 aid: ready-player-me
 url: https://raw.githubusercontent.com/api-evangelist/ready-player-me/refs/heads/main/apis.yml
 apis:
-- aid: ready-player-me:ready-player-me-avatars-api
-  name: Ready Player Me Avatars API
-  tags:
-  - Avatars
-  - 3D
-  - GLB
-  - Gaming
-  humanURL: https://docs.readyplayer.me/ready-player-me/api-reference
-  baseURL: https://api.readyplayer.me/
-  properties:
-  - url: https://docs.readyplayer.me/ready-player-me/api-reference
-    type: Documentation
-  - url: openapi/ready-player-me-avatars-api-openapi.yml
-    type: OpenAPI
-  - type: NaftikoCapability
-    url: capabilities/avatars-lifecycle.yaml
-  - type: NaftikoCapability
-    url: capabilities/avatars-rendering.yaml
-  description: Create, retrieve, update, and delete Ready Player Me cross-platform avatars. Includes
-    template-based creation, asset equipping, draft management, color palette discovery, and binary glTF
-    (.glb) plus 2D PNG renders used in Unity, Unreal, web, iOS, and Android. Supports A/T-pose, mesh LODs,
-    texture atlases, ARKit / Oculus morph targets, Draco and Meshopt compression.
-- aid: ready-player-me:ready-player-me-assets-api
-  name: Ready Player Me Assets API
-  tags:
-  - Assets
-  - Wearables
-  - 3D
-  - Gaming
-  humanURL: https://docs.readyplayer.me/ready-player-me/api-reference/rest-api/assets
-  baseURL: https://api.readyplayer.me/
-  properties:
-  - url: https://docs.readyplayer.me/ready-player-me/api-reference/rest-api/assets
-    type: Documentation
-  - url: openapi/ready-player-me-assets-api-openapi.yml
-    type: OpenAPI
-  - type: NaftikoCapability
-    url: capabilities/assets-catalog.yaml
-  description: Discover and retrieve avatar wearable assets — hair, outfits, headwear, glasses, facewear,
-    footwear, beards, costumes, and custom assets — scoped to an application and optionally filtered to
-    those viewable or usable by a specific user. Powers the wardrobe surface of the Ready Player Me
-    Avatar Creator.
-- aid: ready-player-me:ready-player-me-auth-api
-  name: Ready Player Me Auth API
-  tags:
-  - Authentication
-  - Identity
-  - Users
-  humanURL: https://docs.readyplayer.me/ready-player-me/api-reference/rest-api/users
-  baseURL: https://api.readyplayer.me/
-  properties:
-  - url: https://docs.readyplayer.me/ready-player-me/api-reference/rest-api/users
-    type: Documentation
-  - url: openapi/ready-player-me-auth-api-openapi.yml
-    type: OpenAPI
-  - type: NaftikoCapability
-    url: capabilities/auth-users.yaml
-  description: Anonymous user creation, email-code login, token refresh, and avatar access tokens used by
-    the Ready Player Me Avatar Creator and SDKs. Authentication runs through each application's per-studio
-    subdomain.
+  - aid: ready-player-me:ready-player-me-avatars-api
+    name: Ready Player Me Avatars API
+    tags:
+      - Avatars
+      - 3D
+      - GLB
+      - Gaming
+    humanURL: https://docs.readyplayer.me/ready-player-me/api-reference
+    baseURL: https://api.readyplayer.me/
+    properties:
+      - url: https://docs.readyplayer.me/ready-player-me/api-reference
+        type: Documentation
+      - url: openapi/ready-player-me-avatars-api-openapi.yml
+        type: OpenAPI
+    description: >-
+      Create, retrieve, update, and delete Ready Player Me cross-platform avatars. Includes template-based creation,
+      asset equipping, draft management, color palette discovery, and binary glTF (.glb) plus 2D PNG renders used in
+      Unity, Unreal, web, iOS, and Android. Supports A/T-pose, mesh LODs, texture atlases, ARKit / Oculus morph targets,
+      Draco and Meshopt compression.
+  - aid: ready-player-me:ready-player-me-assets-api
+    name: Ready Player Me Assets API
+    tags:
+      - Assets
+      - Wearables
+      - 3D
+      - Gaming
+    humanURL: https://docs.readyplayer.me/ready-player-me/api-reference/rest-api/assets
+    baseURL: https://api.readyplayer.me/
+    properties:
+      - url: https://docs.readyplayer.me/ready-player-me/api-reference/rest-api/assets
+        type: Documentation
+      - url: openapi/ready-player-me-assets-api-openapi.yml
+        type: OpenAPI
+    description: >-
+      Discover and retrieve avatar wearable assets — hair, outfits, headwear, glasses, facewear, footwear, beards,
+      costumes, and custom assets — scoped to an application and optionally filtered to those viewable or usable by a
+      specific user. Powers the wardrobe surface of the Ready Player Me Avatar Creator.
+  - aid: ready-player-me:ready-player-me-auth-api
+    name: Ready Player Me Auth API
+    tags:
+      - Authentication
+      - Identity
+      - Users
+    humanURL: https://docs.readyplayer.me/ready-player-me/api-reference/rest-api/users
+    baseURL: https://api.readyplayer.me/
+    properties:
+      - url: https://docs.readyplayer.me/ready-player-me/api-reference/rest-api/users
+        type: Documentation
+      - url: openapi/ready-player-me-auth-api-openapi.yml
+        type: OpenAPI
+    description: >-
+      Anonymous user creation, email-code login, token refresh, and avatar access tokens used by the Ready Player Me
+      Avatar Creator and SDKs. Authentication runs through each application's per-studio subdomain.
 name: Ready Player Me
 tags:
-- Avatars
-- 3D
-- Gaming
-- VR
-- AR
-- Metaverse
-- glTF
-- Cross-Platform
-- Unity
-- Unreal
-- Web
-- Mobile
+  - Avatars
+  - 3D
+  - Gaming
+  - VR
+  - AR
+  - Metaverse
+  - glTF
+  - Cross-Platform
+  - Unity
+  - Unreal
+  - Web
+  - Mobile
 kind: contract
 image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
 access: 3rd-Party
 common:
-- url: https://readyplayer.me/
-  name: Ready Player Me Home
-  type: Portal
-- url: https://docs.readyplayer.me/
-  name: Ready Player Me Developer Documentation
-  type: Documentation
-- url: https://docs.readyplayer.me/ready-player-me/api-reference
-  name: API Reference
-  type: Documentation
-- url: https://docs.readyplayer.me/ready-player-me/integration-guides
-  name: Integration Guides
-  type: Documentation
-- url: https://studio.readyplayer.me/
-  name: Ready Player Me Studio
-  type: Portal
-- url: https://readyplayer.me/developers
-  name: Developer Portal
-  type: Portal
-- url: https://readyplayer.me/hub
-  name: Avatar Hub
-  type: Portal
-- url: https://readyplayer.me/blog
-  name: Ready Player Me Blog
-  type: Blog
-- url: https://github.com/readyplayerme
-  name: Ready Player Me GitHub
-  type: Github
-- url: https://www.linkedin.com/company/ready-player-me/
-  name: Ready Player Me LinkedIn
-  type: LinkedIn
-- url: https://twitter.com/readyplayerme
-  name: Ready Player Me Twitter
-  type: Twitter
-- url: https://www.youtube.com/@readyplayerme
-  name: Ready Player Me YouTube
-  type: YouTube
-- url: https://discord.com/invite/readyplayerme
-  name: Ready Player Me Discord
-  type: Discord
-- url: mailto:support@readyplayer.me
-  name: Ready Player Me Support
-  type: Support
-- type: SDK
-  url: https://github.com/readyplayerme/rpm-unity-sdk-core
-  name: Unity SDK Core
-- type: SDK
-  url: https://github.com/readyplayerme/rpm-unreal-sdk
-  name: Unreal SDK
-- type: SDK
-  url: https://github.com/readyplayerme/visage
-  name: Visage Web SDK
-- type: SDK
-  url: https://github.com/readyplayerme/rpm-react-avatar-creator
-  name: React Avatar Creator
-- type: SDK
-  url: https://github.com/readyplayerme/Example-iOS-Swift
-  name: iOS Swift Example
-- type: SDK
-  url: https://github.com/readyplayerme/Example-Android-Kotlin
-  name: Android Kotlin Example
-- type: SDK
-  url: https://github.com/readyplayerme/Example-React-Native
-  name: React Native Example
-- type: JSONSchema
-  url: https://github.com/readyplayerme/content-validation-schemas
-  name: Content Validation Schemas
-- type: Tools
-  url: https://github.com/readyplayerme/animation-library
-  name: Animation Library
-- type: Plans
-  url: plans/ready-player-me-plans-pricing.yml
-- type: RateLimits
-  url: rate-limits/ready-player-me-rate-limits.yml
-- type: FinOps
-  url: finops/ready-player-me-finops.yml
-- type: Vocabulary
-  url: vocabulary/ready-player-me-vocabulary.yml
-- type: JSONLD
-  url: json-ld/ready-player-me-context.jsonld
+  - url: https://readyplayer.me/
+    name: Ready Player Me Home
+    type: Portal
+  - url: https://docs.readyplayer.me/
+    name: Ready Player Me Developer Documentation
+    type: Documentation
+  - url: https://docs.readyplayer.me/ready-player-me/api-reference
+    name: API Reference
+    type: Documentation
+  - url: https://docs.readyplayer.me/ready-player-me/integration-guides
+    name: Integration Guides
+    type: Documentation
+  - url: https://studio.readyplayer.me/
+    name: Ready Player Me Studio
+    type: Portal
+  - url: https://readyplayer.me/developers
+    name: Developer Portal
+    type: Portal
+  - url: https://readyplayer.me/hub
+    name: Avatar Hub
+    type: Portal
+  - url: https://readyplayer.me/blog
+    name: Ready Player Me Blog
+    type: Blog
+  - url: https://github.com/readyplayerme
+    name: Ready Player Me GitHub
+    type: Github
+  - url: https://www.linkedin.com/company/ready-player-me/
+    name: Ready Player Me LinkedIn
+    type: LinkedIn
+  - url: https://twitter.com/readyplayerme
+    name: Ready Player Me Twitter
+    type: Twitter
+  - url: https://www.youtube.com/@readyplayerme
+    name: Ready Player Me YouTube
+    type: YouTube
+  - url: https://discord.com/invite/readyplayerme
+    name: Ready Player Me Discord
+    type: Discord
+  - url: mailto:support@readyplayer.me
+    name: Ready Player Me Support
+    type: Support
+  - type: SDK
+    url: https://github.com/readyplayerme/rpm-unity-sdk-core
+    name: Unity SDK Core
+  - type: SDK
+    url: https://github.com/readyplayerme/rpm-unreal-sdk
+    name: Unreal SDK
+  - type: SDK
+    url: https://github.com/readyplayerme/visage
+    name: Visage Web SDK
+  - type: SDK
+    url: https://github.com/readyplayerme/rpm-react-avatar-creator
+    name: React Avatar Creator
+  - type: SDK
+    url: https://github.com/readyplayerme/Example-iOS-Swift
+    name: iOS Swift Example
+  - type: SDK
+    url: https://github.com/readyplayerme/Example-Android-Kotlin
+    name: Android Kotlin Example
+  - type: SDK
+    url: https://github.com/readyplayerme/Example-React-Native
+    name: React Native Example
+  - type: JSONSchema
+    url: https://github.com/readyplayerme/content-validation-schemas
+    name: Content Validation Schemas
+  - type: Tools
+    url: https://github.com/readyplayerme/animation-library
+    name: Animation Library
+  - type: Plans
+    url: plans/ready-player-me-plans-pricing.yml
+  - type: RateLimits
+    url: rate-limits/ready-player-me-rate-limits.yml
+  - type: FinOps
+    url: finops/ready-player-me-finops.yml
+  - type: Vocabulary
+    url: vocabulary/ready-player-me-vocabulary.yml
+  - type: JSONLD
+    url: json-ld/ready-player-me-context.jsonld
 maintainers:
-- FN: Kin Lane
-  email: info@apievangelist.com
-  url: http://apievangelist.com
+  - FN: Kin Lane
+    email: info@apievangelist.com
+    url: http://apievangelist.com

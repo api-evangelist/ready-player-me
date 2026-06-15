@@ -1,0 +1,133 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Ready Player Me Assets API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "X-APP-ID",
+      "value": "{{X-APP-ID}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Assets",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List Assets",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.readyplayer.me/v1/assets",
+            "params": [
+              {
+                "name": "type",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "gender",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "filter",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "filterApplicationId",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "filterUserId",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "List Assets"
+        },
+        {
+          "info": {
+            "name": "Get Asset GLB Model",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.readyplayer.me/v1/assets/:assetId.glb",
+            "params": [
+              {
+                "name": "assetId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get Asset GLB Model"
+        },
+        {
+          "info": {
+            "name": "Get Asset Thumbnail",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.readyplayer.me/v1/assets/:assetId/thumbnail.png",
+            "params": [
+              {
+                "name": "assetId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get Asset Thumbnail"
+        },
+        {
+          "info": {
+            "name": "List Phoenix Assets",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.readyplayer.me/v1/phoenix-assets",
+            "params": [
+              {
+                "name": "applicationId",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "type",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "List base-model and phoenix-tier assets for an application."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
