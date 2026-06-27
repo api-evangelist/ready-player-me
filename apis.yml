@@ -114,25 +114,25 @@ common:
   - url: mailto:support@readyplayer.me
     name: Ready Player Me Support
     type: Support
-  - type: SDK
+  - type: SDKs
     url: https://github.com/readyplayerme/rpm-unity-sdk-core
     name: Unity SDK Core
-  - type: SDK
+  - type: SDKs
     url: https://github.com/readyplayerme/rpm-unreal-sdk
     name: Unreal SDK
-  - type: SDK
+  - type: SDKs
     url: https://github.com/readyplayerme/visage
     name: Visage Web SDK
-  - type: SDK
+  - type: SDKs
     url: https://github.com/readyplayerme/rpm-react-avatar-creator
     name: React Avatar Creator
-  - type: SDK
+  - type: SDKs
     url: https://github.com/readyplayerme/Example-iOS-Swift
     name: iOS Swift Example
-  - type: SDK
+  - type: SDKs
     url: https://github.com/readyplayerme/Example-Android-Kotlin
     name: Android Kotlin Example
-  - type: SDK
+  - type: SDKs
     url: https://github.com/readyplayerme/Example-React-Native
     name: React Native Example
   - type: JSONSchema
