@@ -72,6 +72,8 @@ kind: contract
 image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
 access: 3rd-Party
 common:
+  - type: Authentication
+    url: authentication/ready-player-me-authentication.yml
   - url: https://readyplayer.me/
     name: Ready Player Me Home
     type: Portal
