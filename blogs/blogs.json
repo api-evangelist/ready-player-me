@@ -3,10 +3,9 @@
   "feeds": [
     {
       "source": "https://readyplayer.me/blog",
-      "saved": 0,
-      "error": "DNS ENOTFOUND - host not resolving"
+      "error": "URLError"
     }
   ],
   "post_count": 0,
-  "fetched": "2026-06-27T13:03:58Z"
+  "fetched": "2026-07-11T11:50:51Z"
 }
