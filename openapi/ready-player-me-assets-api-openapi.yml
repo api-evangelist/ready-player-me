@@ -1,76 +1,86 @@
 openapi: 3.0.3
 info:
   title: Ready Player Me Assets API
-  description: |
-    List, filter, and retrieve Ready Player Me assets — hair, outfits, headwear,
+  description: 'List, filter, and retrieve Ready Player Me assets — hair, outfits, headwear,
+
     glasses, facewear, footwear, beards, costumes, and custom assets — that can be
+
     equipped on avatars. Assets are scoped to an application (`X-APP-ID`) and can be
+
     further filtered to those visible or usable by a specific user.
-  version: "1.0"
+
+    '
+  version: '1.0'
   contact:
     name: Ready Player Me Developers
     url: https://docs.readyplayer.me/
 servers:
-  - url: https://api.readyplayer.me
-    description: Production
+- url: https://api.readyplayer.me
+  description: Production
 security:
-  - AppId: []
+- AppId: []
+tags:
+- name: Assets
+  description: Asset discovery, filtering, and retrieval.
 paths:
   /v1/assets:
     get:
       summary: List Assets
       operationId: listAssets
       tags:
-        - Assets
+      - Assets
       parameters:
-        - name: type
-          in: query
-          schema:
-            type: string
-            enum:
-              - hair
-              - beard
-              - outfit
-              - shirt
-              - top
-              - bottom
-              - footwear
-              - headwear
-              - facewear
-              - glasses
-              - costume
-              - custom
-              - baseModel
-        - name: limit
-          in: query
-          schema:
-            type: integer
-            default: 16
-        - name: page
-          in: query
-          schema:
-            type: integer
-            default: 1
-        - name: gender
-          in: query
-          schema:
-            type: string
-            enum: [masculine, feminine, neutral]
-        - name: filter
-          in: query
-          schema:
-            type: string
-            enum:
-              - viewable-by-user-and-app
-              - usable-by-user-and-app
-        - name: filterApplicationId
-          in: query
-          schema:
-            type: string
-        - name: filterUserId
-          in: query
-          schema:
-            type: string
+      - name: type
+        in: query
+        schema:
+          type: string
+          enum:
+          - hair
+          - beard
+          - outfit
+          - shirt
+          - top
+          - bottom
+          - footwear
+          - headwear
+          - facewear
+          - glasses
+          - costume
+          - custom
+          - baseModel
+      - name: limit
+        in: query
+        schema:
+          type: integer
+          default: 16
+      - name: page
+        in: query
+        schema:
+          type: integer
+          default: 1
+      - name: gender
+        in: query
+        schema:
+          type: string
+          enum:
+          - masculine
+          - feminine
+          - neutral
+      - name: filter
+        in: query
+        schema:
+          type: string
+          enum:
+          - viewable-by-user-and-app
+          - usable-by-user-and-app
+      - name: filterApplicationId
+        in: query
+        schema:
+          type: string
+      - name: filterUserId
+        in: query
+        schema:
+          type: string
       responses:
         '200':
           description: A paginated list of assets.
@@ -83,9 +93,9 @@ paths:
       summary: Get Asset GLB Model
       operationId: getAssetGlb
       tags:
-        - Assets
+      - Assets
       parameters:
-        - $ref: '#/components/parameters/AssetId'
+      - $ref: '#/components/parameters/AssetId'
       responses:
         '200':
           description: Binary glTF asset model.
@@ -99,9 +109,9 @@ paths:
       summary: Get Asset Thumbnail
       operationId: getAssetThumbnail
       tags:
-        - Assets
+      - Assets
       parameters:
-        - $ref: '#/components/parameters/AssetId'
+      - $ref: '#/components/parameters/AssetId'
       responses:
         '200':
           description: Thumbnail image.
@@ -115,35 +125,41 @@ paths:
       summary: List Phoenix Assets
       operationId: listPhoenixAssets
       tags:
-        - Assets
+      - Assets
       description: List base-model and phoenix-tier assets for an application.
       parameters:
-        - name: applicationId
-          in: query
-          required: true
-          schema:
-            type: string
-        - name: type
-          in: query
-          schema:
-            type: string
+      - name: applicationId
+        in: query
+        required: true
+        schema:
+          type: string
+      - name: type
+        in: query
+        schema:
+          type: string
       responses:
         '200':
           description: Phoenix asset list.
 components:
-  securitySchemes:
-    AppId:
-      type: apiKey
-      in: header
-      name: X-APP-ID
-  parameters:
-    AssetId:
-      name: assetId
-      in: path
-      required: true
-      schema:
-        type: string
   schemas:
+    AssetList:
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/Asset'
+        pagination:
+          type: object
+          properties:
+            page:
+              type: integer
+            limit:
+              type: integer
+            totalPages:
+              type: integer
+            totalDocs:
+              type: integer
     Asset:
       type: object
       properties:
@@ -163,24 +179,15 @@ components:
           type: array
           items:
             type: string
-    AssetList:
-      type: object
-      properties:
-        data:
-          type: array
-          items:
-            $ref: '#/components/schemas/Asset'
-        pagination:
-          type: object
-          properties:
-            page:
-              type: integer
-            limit:
-              type: integer
-            totalPages:
-              type: integer
-            totalDocs:
-              type: integer
-tags:
-  - name: Assets
-    description: Asset discovery, filtering, and retrieval.
+  parameters:
+    AssetId:
+      name: assetId
+      in: path
+      required: true
+      schema:
+        type: string
+  securitySchemes:
+    AppId:
+      type: apiKey
+      in: header
+      name: X-APP-ID

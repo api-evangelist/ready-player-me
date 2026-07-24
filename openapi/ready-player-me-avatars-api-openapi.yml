@@ -1,32 +1,34 @@
 openapi: 3.0.3
 info:
-  title: Ready Player Me Avatars API
-  description: |
-    Create, retrieve, update, and delete Ready Player Me cross-platform avatars. The
-    Avatars API exposes the avatar lifecycle behind the Avatar Creator, including
-    template-based creation, asset equipping, draft management, and GLB / PNG renders
-    used by games and applications across Unity, Unreal, web, iOS, and Android.
+  title: Ready Player Me Assets Avatars API
+  description: 'List, filter, and retrieve Ready Player Me assets — hair, outfits, headwear,
 
-    Avatars are addressable as binary glTF (`.glb`) for runtime use and as 2D PNG
-    renders for thumbnails, headshots, busts, half-body, and full-body portrait
-    scenes. The v2 surface adds drafts, templates, colors, and precompile.
-  version: "2.0"
+    glasses, facewear, footwear, beards, costumes, and custom assets — that can be
+
+    equipped on avatars. Assets are scoped to an application (`X-APP-ID`) and can be
+
+    further filtered to those visible or usable by a specific user.
+
+    '
+  version: '1.0'
   contact:
     name: Ready Player Me Developers
     url: https://docs.readyplayer.me/
-    email: support@readyplayer.me
 servers:
-  - url: https://api.readyplayer.me
-    description: Production
+- url: https://api.readyplayer.me
+  description: Production
 security:
-  - AppId: []
+- AppId: []
+tags:
+- name: Avatars
+  description: Avatar creation, asset equipping, render, and lifecycle operations.
 paths:
   /v2/avatars:
     post:
       summary: Create A Draft Avatar
       operationId: createAvatar
       tags:
-        - Avatars
+      - Avatars
       requestBody:
         required: true
         content:
@@ -45,7 +47,7 @@ paths:
       summary: List Avatar Templates
       operationId: listAvatarTemplates
       tags:
-        - Avatars
+      - Avatars
       responses:
         '200':
           description: A list of available avatar templates.
@@ -60,9 +62,9 @@ paths:
       summary: Create Avatar From Template
       operationId: createAvatarFromTemplate
       tags:
-        - Avatars
+      - Avatars
       parameters:
-        - $ref: '#/components/parameters/TemplateId'
+      - $ref: '#/components/parameters/TemplateId'
       requestBody:
         required: true
         content:
@@ -81,9 +83,9 @@ paths:
       summary: Get Avatar Metadata
       operationId: getAvatarMetadata
       tags:
-        - Avatars
+      - Avatars
       parameters:
-        - $ref: '#/components/parameters/AvatarId'
+      - $ref: '#/components/parameters/AvatarId'
       responses:
         '200':
           description: Avatar metadata JSON.
@@ -95,14 +97,16 @@ paths:
       summary: Update Avatar Equipped Assets
       operationId: updateAvatar
       tags:
-        - Avatars
+      - Avatars
       parameters:
-        - $ref: '#/components/parameters/AvatarId'
-        - name: responseType
-          in: query
-          schema:
-            type: string
-            enum: [glb, json]
+      - $ref: '#/components/parameters/AvatarId'
+      - name: responseType
+        in: query
+        schema:
+          type: string
+          enum:
+          - glb
+          - json
       requestBody:
         required: true
         content:
@@ -116,9 +120,9 @@ paths:
       summary: Save Draft Avatar
       operationId: saveAvatar
       tags:
-        - Avatars
+      - Avatars
       parameters:
-        - $ref: '#/components/parameters/AvatarId'
+      - $ref: '#/components/parameters/AvatarId'
       responses:
         '200':
           description: Draft avatar saved as a permanent avatar.
@@ -126,9 +130,9 @@ paths:
       summary: Delete Avatar
       operationId: deleteAvatar
       tags:
-        - Avatars
+      - Avatars
       parameters:
-        - $ref: '#/components/parameters/AvatarId'
+      - $ref: '#/components/parameters/AvatarId'
       responses:
         '204':
           description: Avatar deleted.
@@ -137,9 +141,9 @@ paths:
       summary: Delete Avatar Draft
       operationId: deleteAvatarDraft
       tags:
-        - Avatars
+      - Avatars
       parameters:
-        - $ref: '#/components/parameters/AvatarId'
+      - $ref: '#/components/parameters/AvatarId'
       responses:
         '204':
           description: Avatar draft discarded.
@@ -148,10 +152,10 @@ paths:
       summary: Precompile Avatar Render
       operationId: precompileAvatar
       tags:
-        - Avatars
+      - Avatars
       description: Warm the asset cache for a specific avatar / parameter combination.
       parameters:
-        - $ref: '#/components/parameters/AvatarId'
+      - $ref: '#/components/parameters/AvatarId'
       responses:
         '200':
           description: Precompile accepted.
@@ -160,15 +164,15 @@ paths:
       summary: Get Avatar Color Palette
       operationId: getAvatarColors
       tags:
-        - Avatars
+      - Avatars
       parameters:
-        - $ref: '#/components/parameters/AvatarId'
-        - name: type
-          in: query
-          schema:
-            type: string
-            description: Comma-separated color categories (skin,beard,hair,eyebrow).
-            example: skin,beard,hair,eyebrow
+      - $ref: '#/components/parameters/AvatarId'
+      - name: type
+        in: query
+        schema:
+          type: string
+          description: Comma-separated color categories (skin,beard,hair,eyebrow).
+          example: skin,beard,hair,eyebrow
       responses:
         '200':
           description: Avatar color palette.
@@ -181,18 +185,18 @@ paths:
       summary: List Avatars For A User
       operationId: listUserAvatars
       tags:
-        - Avatars
+      - Avatars
       parameters:
-        - name: userId
-          in: query
-          required: true
-          schema:
-            type: string
-        - name: select
-          in: query
-          schema:
-            type: string
-            example: id,partner
+      - name: userId
+        in: query
+        required: true
+        schema:
+          type: string
+      - name: select
+        in: query
+        schema:
+          type: string
+          example: id,partner
       responses:
         '200':
           description: A list of avatars owned by the user.
@@ -207,55 +211,69 @@ paths:
       summary: Get Avatar GLB Model
       operationId: getAvatarGlb
       tags:
-        - Avatars
+      - Avatars
       parameters:
-        - $ref: '#/components/parameters/AvatarId'
-        - name: pose
-          in: query
-          schema:
-            type: string
-            enum: [A, T]
-            description: A-pose or T-pose.
-        - name: meshLod
-          in: query
-          schema:
-            type: integer
-            enum: [0, 1, 2]
-            description: Mesh level of detail.
-        - name: textureAtlas
-          in: query
-          schema:
-            type: string
-            enum: ["none", "256", "512", "1024", "2048"]
-        - name: textureSizeLimit
-          in: query
-          schema:
-            type: integer
-            enum: [256, 512, 1024, 2048]
-        - name: textureChannels
-          in: query
-          schema:
-            type: string
-            description: Comma-separated texture channels.
-            example: baseColor,normal,metallicRoughness,emissive,occlusion
-        - name: morphTargets
-          in: query
-          schema:
-            type: string
-            description: ARKit / Oculus / custom morph targets, or "none".
-            example: ARKit
-        - name: useHands
-          in: query
-          schema:
-            type: boolean
-        - name: useDracoMeshCompression
-          in: query
-          schema:
-            type: boolean
-        - name: useMeshOptCompression
-          in: query
-          schema:
-            type: boolean
+      - $ref: '#/components/parameters/AvatarId'
+      - name: pose
+        in: query
+        schema:
+          type: string
+          enum:
+          - A
+          - T
+          description: A-pose or T-pose.
+      - name: meshLod
+        in: query
+        schema:
+          type: integer
+          enum:
+          - 0
+          - 1
+          - 2
+          description: Mesh level of detail.
+      - name: textureAtlas
+        in: query
+        schema:
+          type: string
+          enum:
+          - none
+          - '256'
+          - '512'
+          - '1024'
+          - '2048'
+      - name: textureSizeLimit
+        in: query
+        schema:
+          type: integer
+          enum:
+          - 256
+          - 512
+          - 1024
+          - 2048
+      - name: textureChannels
+        in: query
+        schema:
+          type: string
+          description: Comma-separated texture channels.
+          example: baseColor,normal,metallicRoughness,emissive,occlusion
+      - name: morphTargets
+        in: query
+        schema:
+          type: string
+          description: ARKit / Oculus / custom morph targets, or "none".
+          example: ARKit
+      - name: useHands
+        in: query
+        schema:
+          type: boolean
+      - name: useDracoMeshCompression
+        in: query
+        schema:
+          type: boolean
+      - name: useMeshOptCompression
+        in: query
+        schema:
+          type: boolean
       responses:
         '200':
           description: Binary glTF avatar model.
@@ -269,32 +287,32 @@ paths:
       summary: Get 2D Avatar Render
       operationId: getAvatarPng
       tags:
-        - Avatars
+      - Avatars
       parameters:
-        - $ref: '#/components/parameters/AvatarId'
-        - name: scene
-          in: query
-          schema:
-            type: string
-            enum:
-              - fullbody-portrait-v1
-              - fullbody-portrait-v1-transparent
-              - halfbody-portrait-v1
-              - halfbody-portrait-v1-transparent
-              - portrait-v1
-              - portrait-v1-transparent
-        - name: w
-          in: query
-          schema:
-            type: integer
-        - name: h
-          in: query
-          schema:
-            type: integer
-        - name: cacheControl
-          in: query
-          schema:
-            type: boolean
+      - $ref: '#/components/parameters/AvatarId'
+      - name: scene
+        in: query
+        schema:
+          type: string
+          enum:
+          - fullbody-portrait-v1
+          - fullbody-portrait-v1-transparent
+          - halfbody-portrait-v1
+          - halfbody-portrait-v1-transparent
+          - portrait-v1
+          - portrait-v1-transparent
+      - name: w
+        in: query
+        schema:
+          type: integer
+      - name: h
+        in: query
+        schema:
+          type: integer
+      - name: cacheControl
+        in: query
+        schema:
+          type: boolean
       responses:
         '200':
           description: PNG render of the avatar.
@@ -308,13 +326,13 @@ paths:
       summary: Get V2 Avatar GLB Model
       operationId: getAvatarGlbV2
       tags:
-        - Avatars
+      - Avatars
       parameters:
-        - $ref: '#/components/parameters/AvatarId'
-        - name: preview
-          in: query
-          schema:
-            type: boolean
+      - $ref: '#/components/parameters/AvatarId'
+      - name: preview
+        in: query
+        schema:
+          type: boolean
       responses:
         '200':
           description: Binary glTF avatar model.
@@ -324,26 +342,27 @@ paths:
                 type: string
                 format: binary
 components:
-  securitySchemes:
-    AppId:
-      type: apiKey
-      in: header
-      name: X-APP-ID
-      description: Application ID provisioned in the Ready Player Me Studio.
-  parameters:
-    AvatarId:
-      name: avatarId
-      in: path
-      required: true
-      schema:
-        type: string
-    TemplateId:
-      name: templateId
-      in: path
-      required: true
-      schema:
-        type: string
   schemas:
+    ColorPalette:
+      type: object
+      properties:
+        data:
+          type: object
+          additionalProperties:
+            type: array
+            items:
+              type: string
+              description: Hex color value.
+    AvatarUpdateRequest:
+      type: object
+      properties:
+        data:
+          type: object
+          properties:
+            assets:
+              type: object
+              additionalProperties:
+                type: string
     Avatar:
       type: object
       properties:
@@ -355,10 +374,15 @@ components:
           type: string
         bodyType:
           type: string
-          enum: [halfbody, fullbody]
+          enum:
+          - halfbody
+          - fullbody
         gender:
           type: string
-          enum: [masculine, feminine, neutral]
+          enum:
+          - masculine
+          - feminine
+          - neutral
         assets:
           type: object
           additionalProperties:
@@ -377,16 +401,6 @@ components:
               type: string
             assets:
               type: object
-    AvatarUpdateRequest:
-      type: object
-      properties:
-        data:
-          type: object
-          properties:
-            assets:
-              type: object
-              additionalProperties:
-                type: string
     AvatarTemplate:
       type: object
       properties:
@@ -396,16 +410,21 @@ components:
           type: string
         gender:
           type: string
-    ColorPalette:
-      type: object
-      properties:
-        data:
-          type: object
-          additionalProperties:
-            type: array
-            items:
-              type: string
-              description: Hex color value.
-tags:
-  - name: Avatars
-    description: Avatar creation, asset equipping, render, and lifecycle operations.
+  parameters:
+    TemplateId:
+      name: templateId
+      in: path
+      required: true
+      schema:
+        type: string
+    AvatarId:
+      name: avatarId
+      in: path
+      required: true
+      schema:
+        type: string
+  securitySchemes:
+    AppId:
+      type: apiKey
+      in: header
+      name: X-APP-ID

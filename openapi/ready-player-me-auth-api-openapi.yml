@@ -1,29 +1,34 @@
 openapi: 3.0.3
 info:
-  title: Ready Player Me Auth API
-  description: |
-    Anonymous user creation, login, and token refresh used by the Avatar Creator and
-    Ready Player Me SDKs. Authentication is scoped per studio subdomain
-    (`<subdomain>.readyplayer.me`) so a single application can run isolated auth
-    flows for its end users.
-  version: "1.0"
+  title: Ready Player Me Assets Auth API
+  description: 'List, filter, and retrieve Ready Player Me assets — hair, outfits, headwear,
+
+    glasses, facewear, footwear, beards, costumes, and custom assets — that can be
+
+    equipped on avatars. Assets are scoped to an application (`X-APP-ID`) and can be
+
+    further filtered to those visible or usable by a specific user.
+
+    '
+  version: '1.0'
   contact:
     name: Ready Player Me Developers
     url: https://docs.readyplayer.me/
 servers:
-  - url: https://{subdomain}.readyplayer.me
-    description: Per-application subdomain endpoint
-    variables:
-      subdomain:
-        default: api
-        description: The studio subdomain that owns the auth flow.
+- url: https://api.readyplayer.me
+  description: Production
+security:
+- AppId: []
+tags:
+- name: Auth
+  description: User authentication and token management.
 paths:
   /api/users:
     post:
       summary: Create Anonymous User
       operationId: createAnonymousUser
       tags:
-        - Auth
+      - Auth
       responses:
         '201':
           description: Anonymous user created.
@@ -36,7 +41,7 @@ paths:
       summary: Start Login With Email Code
       operationId: authStart
       tags:
-        - Auth
+      - Auth
       requestBody:
         required: true
         content:
@@ -55,7 +60,7 @@ paths:
       summary: Confirm Login Code
       operationId: authLogin
       tags:
-        - Auth
+      - Auth
       requestBody:
         required: true
         content:
@@ -79,7 +84,7 @@ paths:
       summary: Refresh Auth Tokens
       operationId: authRefresh
       tags:
-        - Auth
+      - Auth
       requestBody:
         required: true
         content:
@@ -103,7 +108,7 @@ paths:
       summary: Get Avatar Token
       operationId: getAvatarToken
       tags:
-        - Auth
+      - Auth
       description: Mint a short-lived token used to render or modify a specific avatar.
       requestBody:
         required: true
@@ -140,6 +145,8 @@ components:
           type: string
         refreshToken:
           type: string
-tags:
-  - name: Auth
-    description: User authentication and token management.
+  securitySchemes:
+    AppId:
+      type: apiKey
+      in: header
+      name: X-APP-ID
