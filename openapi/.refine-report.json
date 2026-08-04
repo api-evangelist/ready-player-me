@@ -1,0 +1,18 @@
+{
+  "provider": "ready-player-me",
+  "sources": [
+    "ready-player-me-assets-api-openapi.yml",
+    "ready-player-me-auth-api-openapi.yml",
+    "ready-player-me-avatars-api-openapi.yml"
+  ],
+  "outputs": [
+    "ready-player-me-assets-api-openapi.yml",
+    "ready-player-me-auth-api-openapi.yml",
+    "ready-player-me-avatars-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}
