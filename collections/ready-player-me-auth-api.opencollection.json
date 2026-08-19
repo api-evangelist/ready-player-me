@@ -1,8 +1,16 @@
 {
   "opencollection": "1.0.0",
   "info": {
-    "name": "Ready Player Me Auth API",
+    "name": "Ready Player Me Assets Auth API",
     "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "X-APP-ID",
+      "value": "{{X-APP-ID}}",
+      "placement": "header"
+    }
   },
   "items": [
     {
@@ -18,7 +26,7 @@
           },
           "http": {
             "method": "POST",
-            "url": "https://{subdomain}.readyplayer.me/api/users"
+            "url": "https://api.readyplayer.me/api/users"
           },
           "docs": "Create Anonymous User"
         },
@@ -29,7 +37,7 @@
           },
           "http": {
             "method": "POST",
-            "url": "https://{subdomain}.readyplayer.me/api/auth/start",
+            "url": "https://api.readyplayer.me/api/auth/start",
             "body": {
               "type": "json",
               "data": "{}"
@@ -44,7 +52,7 @@
           },
           "http": {
             "method": "POST",
-            "url": "https://{subdomain}.readyplayer.me/api/auth/login",
+            "url": "https://api.readyplayer.me/api/auth/login",
             "body": {
               "type": "json",
               "data": "{}"
@@ -59,7 +67,7 @@
           },
           "http": {
             "method": "POST",
-            "url": "https://{subdomain}.readyplayer.me/api/auth/refresh",
+            "url": "https://api.readyplayer.me/api/auth/refresh",
             "body": {
               "type": "json",
               "data": "{}"
@@ -74,7 +82,7 @@
           },
           "http": {
             "method": "POST",
-            "url": "https://{subdomain}.readyplayer.me/v1/auth/token",
+            "url": "https://api.readyplayer.me/v1/auth/token",
             "body": {
               "type": "json",
               "data": "{}"

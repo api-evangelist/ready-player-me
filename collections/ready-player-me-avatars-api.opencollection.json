@@ -1,8 +1,8 @@
 {
   "opencollection": "1.0.0",
   "info": {
-    "name": "Ready Player Me Avatars API",
-    "version": "2.0"
+    "name": "Ready Player Me Assets Avatars API",
+    "version": "1.0"
   },
   "request": {
     "auth": {

@@ -1,7 +1,7 @@
 {
   "item": [
     {
-      "id": "3c2cd14e-1734-4b59-b1f5-6c348bd61b93",
+      "id": "cb75385a-e6ff-437d-8191-1fe3153f969c",
       "name": "Avatars",
       "description": {
         "content": "Avatar creation, asset equipping, render, and lifecycle operations.",
@@ -9,7 +9,7 @@
       },
       "item": [
         {
-          "id": "553f7344-4023-449a-90a6-9cc265b07a4d",
+          "id": "03b315b0-34b1-4d05-b23b-3f7bd6834878",
           "name": "Create A Draft Avatar",
           "request": {
             "name": "Create A Draft Avatar",
@@ -49,7 +49,7 @@
           },
           "response": [
             {
-              "id": "88af6152-20fe-4353-894b-360c0fd1ebe7",
+              "id": "747e11d8-3b93-4b69-8321-188f810cfb76",
               "name": "Draft avatar created.",
               "originalRequest": {
                 "url": {
@@ -96,7 +96,7 @@
                   "value": "application/json"
                 }
               ],
-              "body": "{\n  \"id\": \"string\",\n  \"partner\": \"string\",\n  \"userId\": \"string\",\n  \"bodyType\": \"fullbody\",\n  \"gender\": \"feminine\",\n  \"assets\": {\n    \"key_0\": \"string\"\n  }\n}",
+              "body": "{\n  \"id\": \"string\",\n  \"partner\": \"string\",\n  \"userId\": \"string\",\n  \"bodyType\": \"fullbody\",\n  \"gender\": \"feminine\",\n  \"assets\": {\n    \"key_0\": \"string\",\n    \"key_1\": \"string\",\n    \"key_2\": \"string\"\n  }\n}",
               "cookie": [],
               "_postman_previewlanguage": "json"
             }
@@ -107,7 +107,7 @@
           }
         },
         {
-          "id": "3cb36014-510a-4832-a7c2-32db78316a74",
+          "id": "2d15da0e-d6bd-483f-9de4-fa02687b9280",
           "name": "List Avatar Templates",
           "request": {
             "name": "List Avatar Templates",
@@ -135,7 +135,7 @@
           },
           "response": [
             {
-              "id": "c6dbc738-1d9b-498c-9246-01ff3938f38f",
+              "id": "7227f3c9-b590-442c-baa5-a1f9c30e887b",
               "name": "A list of available avatar templates.",
               "originalRequest": {
                 "url": {
@@ -186,7 +186,7 @@
           }
         },
         {
-          "id": "796c604d-7709-4cb1-8f21-669b338bf5df",
+          "id": "e82a847a-6c9f-4abd-9cb7-0d2e183660dc",
           "name": "Create Avatar From Template",
           "request": {
             "name": "Create Avatar From Template",
@@ -236,7 +236,7 @@
           },
           "response": [
             {
-              "id": "c7e4d1b1-2c20-4c12-a482-68bf66a64f58",
+              "id": "6ee3f341-3c49-448e-91ae-fb569fa22c30",
               "name": "Avatar created from template.",
               "originalRequest": {
                 "url": {
@@ -293,7 +293,7 @@
                   "value": "application/json"
                 }
               ],
-              "body": "{\n  \"id\": \"string\",\n  \"partner\": \"string\",\n  \"userId\": \"string\",\n  \"bodyType\": \"fullbody\",\n  \"gender\": \"feminine\",\n  \"assets\": {\n    \"key_0\": \"string\"\n  }\n}",
+              "body": "{\n  \"id\": \"string\",\n  \"partner\": \"string\",\n  \"userId\": \"string\",\n  \"bodyType\": \"fullbody\",\n  \"gender\": \"feminine\",\n  \"assets\": {\n    \"key_0\": \"string\",\n    \"key_1\": \"string\",\n    \"key_2\": \"string\"\n  }\n}",
               "cookie": [],
               "_postman_previewlanguage": "json"
             }
@@ -304,7 +304,7 @@
           }
         },
         {
-          "id": "1d66230b-c277-4610-bd4e-cd3f9060804b",
+          "id": "776874a4-abf7-4f73-aff2-9dbd52b6a6fd",
           "name": "Get Avatar Metadata",
           "request": {
             "name": "Get Avatar Metadata",
@@ -340,7 +340,7 @@
           },
           "response": [
             {
-              "id": "afac6c7f-2c83-487e-a7c4-23fcd81f0a25",
+              "id": "97ece2c9-be16-4c82-be54-039c72d07f25",
               "name": "Avatar metadata JSON.",
               "originalRequest": {
                 "url": {
@@ -388,7 +388,7 @@
                   "value": "application/json"
                 }
               ],
-              "body": "{\n  \"id\": \"string\",\n  \"partner\": \"string\",\n  \"userId\": \"string\",\n  \"bodyType\": \"fullbody\",\n  \"gender\": \"feminine\",\n  \"assets\": {\n    \"key_0\": \"string\"\n  }\n}",
+              "body": "{\n  \"id\": \"string\",\n  \"partner\": \"string\",\n  \"userId\": \"string\",\n  \"bodyType\": \"fullbody\",\n  \"gender\": \"feminine\",\n  \"assets\": {\n    \"key_0\": \"string\",\n    \"key_1\": \"string\",\n    \"key_2\": \"string\"\n  }\n}",
               "cookie": [],
               "_postman_previewlanguage": "json"
             }
@@ -399,7 +399,7 @@
           }
         },
         {
-          "id": "c5e924cf-8fd7-4d45-8aa2-337c383146ec",
+          "id": "bdb8d739-c785-41c9-9587-7d7e902a9e2b",
           "name": "Update Avatar Equipped Assets",
           "request": {
             "name": "Update Avatar Equipped Assets",
@@ -440,7 +440,7 @@
             "auth": null,
             "body": {
               "mode": "raw",
-              "raw": "{\n  \"data\": {\n    \"assets\": {\n      \"key_0\": \"<string>\",\n      \"key_1\": \"<string>\"\n    }\n  }\n}",
+              "raw": "{\n  \"data\": {\n    \"assets\": {\n      \"key_0\": \"<string>\"\n    }\n  }\n}",
               "options": {
                 "raw": {
                   "language": "json"
@@ -450,7 +450,7 @@
           },
           "response": [
             {
-              "id": "f24b3eb6-2130-4be1-b3e0-4e86533cfd54",
+              "id": "3e11019f-95e2-4deb-acc7-c4d3df37e486",
               "name": "Avatar updated.",
               "originalRequest": {
                 "url": {
@@ -518,7 +518,7 @@
           }
         },
         {
-          "id": "1f785149-11fb-4a53-a441-e05a9b9e4c51",
+          "id": "e223dc0a-3a0d-4da3-bef7-6ce43ae0e55a",
           "name": "Save Draft Avatar",
           "request": {
             "name": "Save Draft Avatar",
@@ -548,7 +548,7 @@
           },
           "response": [
             {
-              "id": "3f5614d9-7432-433f-9389-c6ef3b52a103",
+              "id": "24a9a6bd-ace1-49af-a907-bf3dd66c0161",
               "name": "Draft avatar saved as a permanent avatar.",
               "originalRequest": {
                 "url": {
@@ -603,7 +603,7 @@
           }
         },
         {
-          "id": "b18bfb37-8155-4950-afc5-22b6cd61ae75",
+          "id": "dc2493f1-0149-4b89-b30e-f740a7595b64",
           "name": "Delete Avatar",
           "request": {
             "name": "Delete Avatar",
@@ -633,7 +633,7 @@
           },
           "response": [
             {
-              "id": "2ea8ef93-ef7f-4cef-ab33-144af8d39370",
+              "id": "904b8750-1788-4092-92e9-f219ad6bc215",
               "name": "Avatar deleted.",
               "originalRequest": {
                 "url": {
@@ -688,7 +688,7 @@
           }
         },
         {
-          "id": "73e0b7f2-a204-4924-8535-3d9bd91e9c7e",
+          "id": "442df163-5568-4676-b0cd-6c3d2212686c",
           "name": "Delete Avatar Draft",
           "request": {
             "name": "Delete Avatar Draft",
@@ -719,7 +719,7 @@
           },
           "response": [
             {
-              "id": "27a66b0e-fc2e-4567-9b2b-4f74944a888f",
+              "id": "e084088b-6751-4ea2-bc6b-ea167318e698",
               "name": "Avatar draft discarded.",
               "originalRequest": {
                 "url": {
@@ -775,7 +775,7 @@
           }
         },
         {
-          "id": "86d9f7c1-c048-461e-aaed-ec0e42f8ea52",
+          "id": "356a76f6-bf7f-421b-bd2b-7049bf9b48fa",
           "name": "Precompile Avatar Render",
           "request": {
             "name": "Precompile Avatar Render",
@@ -809,7 +809,7 @@
           },
           "response": [
             {
-              "id": "1d29732b-3597-489e-ade2-0183076ad3fd",
+              "id": "3f7a1706-2348-4d0f-b905-0ea3e3a5924d",
               "name": "Precompile accepted.",
               "originalRequest": {
                 "url": {
@@ -865,7 +865,7 @@
           }
         },
         {
-          "id": "c956c314-0234-4154-8cb2-c9177d6cc32e",
+          "id": "173dec97-34d9-4c0d-b019-78546a2432c6",
           "name": "Get Avatar Color Palette",
           "request": {
             "name": "Get Avatar Color Palette",
@@ -908,7 +908,7 @@
           },
           "response": [
             {
-              "id": "aa5ea970-8462-4e98-bf4d-789b7711b74a",
+              "id": "4ff696b2-1e60-4f0b-956a-edaeea42d2ad",
               "name": "Avatar color palette.",
               "originalRequest": {
                 "url": {
@@ -962,7 +962,7 @@
                   "value": "application/json"
                 }
               ],
-              "body": "{\n  \"data\": {\n    \"key_0\": [\n      \"string\",\n      \"string\"\n    ],\n    \"key_1\": [\n      \"string\",\n      \"string\"\n    ],\n    \"key_2\": [\n      \"string\",\n      \"string\"\n    ]\n  }\n}",
+              "body": "{\n  \"data\": {\n    \"key_0\": [\n      \"string\",\n      \"string\"\n    ],\n    \"key_1\": [\n      \"string\",\n      \"string\"\n    ]\n  }\n}",
               "cookie": [],
               "_postman_previewlanguage": "json"
             }
@@ -973,7 +973,7 @@
           }
         },
         {
-          "id": "1e4c70bd-12f8-478b-9a75-5cb163e5c348",
+          "id": "bdaaa9da-a99a-4a6a-9dbc-bc19604fa0f7",
           "name": "List Avatars For A User",
           "request": {
             "name": "List Avatars For A User",
@@ -1012,7 +1012,7 @@
           },
           "response": [
             {
-              "id": "74ceb50d-43a7-4bc4-b40d-883d3d6c2d6c",
+              "id": "4e9f909d-c669-490a-bd7b-28f5d93345bf",
               "name": "A list of avatars owned by the user.",
               "originalRequest": {
                 "url": {
@@ -1060,7 +1060,7 @@
                   "value": "application/json"
                 }
               ],
-              "body": "[\n  {\n    \"id\": \"string\",\n    \"partner\": \"string\",\n    \"userId\": \"string\",\n    \"bodyType\": \"fullbody\",\n    \"gender\": \"neutral\",\n    \"assets\": {\n      \"key_0\": \"string\",\n      \"key_1\": \"string\",\n      \"key_2\": \"string\",\n      \"key_3\": \"string\"\n    }\n  },\n  {\n    \"id\": \"string\",\n    \"partner\": \"string\",\n    \"userId\": \"string\",\n    \"bodyType\": \"halfbody\",\n    \"gender\": \"neutral\",\n    \"assets\": {\n      \"key_0\": \"string\",\n      \"key_1\": \"string\"\n    }\n  }\n]",
+              "body": "[\n  {\n    \"id\": \"string\",\n    \"partner\": \"string\",\n    \"userId\": \"string\",\n    \"bodyType\": \"fullbody\",\n    \"gender\": \"masculine\",\n    \"assets\": {\n      \"key_0\": \"string\"\n    }\n  },\n  {\n    \"id\": \"string\",\n    \"partner\": \"string\",\n    \"userId\": \"string\",\n    \"bodyType\": \"halfbody\",\n    \"gender\": \"neutral\",\n    \"assets\": {\n      \"key_0\": \"string\"\n    }\n  }\n]",
               "cookie": [],
               "_postman_previewlanguage": "json"
             }
@@ -1071,7 +1071,7 @@
           }
         },
         {
-          "id": "7708d0e9-adb3-46d0-af57-fe1b5b0470da",
+          "id": "b40d8fca-9579-43dd-8f88-6988fa3086bc",
           "name": "Get Avatar GLB Model",
           "request": {
             "name": "Get Avatar GLB Model",
@@ -1145,7 +1145,7 @@
           },
           "response": [
             {
-              "id": "35b7f4c0-3f3f-496e-81a8-ea6332f2784b",
+              "id": "b8ddaf2b-207e-4297-9fe9-9a872cddf419",
               "name": "Binary glTF avatar model.",
               "originalRequest": {
                 "url": {
@@ -1233,7 +1233,7 @@
           }
         },
         {
-          "id": "167e478d-93d5-41ed-9f59-89bbc3fbb4ea",
+          "id": "d5ce6bf3-fbb4-4b99-abd5-5f93e52d5d29",
           "name": "Get 2D Avatar Render",
           "request": {
             "name": "Get 2D Avatar Render",
@@ -1282,7 +1282,7 @@
           },
           "response": [
             {
-              "id": "7bc70c79-863f-40d3-8b8a-05444d685c57",
+              "id": "74b08d82-16e6-46ab-81d2-dc7c1fa01adb",
               "name": "PNG render of the avatar.",
               "originalRequest": {
                 "url": {
@@ -1350,7 +1350,7 @@
           }
         },
         {
-          "id": "9f52da7f-213f-43bd-b74a-766e88829bb4",
+          "id": "d26fd38f-d83e-4f00-92f5-85cf38650ba1",
           "name": "Get V2 Avatar GLB Model",
           "request": {
             "name": "Get V2 Avatar GLB Model",
@@ -1384,7 +1384,7 @@
           },
           "response": [
             {
-              "id": "70155cf2-5832-4eea-afd5-d4710e952636",
+              "id": "838a7fd7-2932-4d86-a85d-66109bd3f2c3",
               "name": "Binary glTF avatar model.",
               "originalRequest": {
                 "url": {
@@ -1479,11 +1479,11 @@
     ]
   },
   "info": {
-    "_postman_id": "3b8c0e00-1a86-4db3-bf0e-d741033657db",
-    "name": "Ready Player Me Avatars API",
+    "_postman_id": "837293da-e739-4d82-b4b6-d01361e1ca73",
+    "name": "Ready Player Me Assets Avatars API",
     "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
     "description": {
-      "content": "Create, retrieve, update, and delete Ready Player Me cross-platform avatars. The\nAvatars API exposes the avatar lifecycle behind the Avatar Creator, including\ntemplate-based creation, asset equipping, draft management, and GLB / PNG renders\nused by games and applications across Unity, Unreal, web, iOS, and Android.\n\nAvatars are addressable as binary glTF (`.glb`) for runtime use and as 2D PNG\nrenders for thumbnails, headshots, busts, half-body, and full-body portrait\nscenes. The v2 surface adds drafts, templates, colors, and precompile.\n\n\nContact Support:\n Name: Ready Player Me Developers\n Email: support@readyplayer.me",
+      "content": "List, filter, and retrieve Ready Player Me assets — hair, outfits, headwear,\nglasses, facewear, footwear, beards, costumes, and custom assets — that can be\nequipped on avatars. Assets are scoped to an application (`X-APP-ID`) and can be\nfurther filtered to those visible or usable by a specific user.\n\n\nContact Support:\n Name: Ready Player Me Developers",
       "type": "text/plain"
     }
   }
