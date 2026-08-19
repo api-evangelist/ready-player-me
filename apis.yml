@@ -1,5 +1,6 @@
 aid: ready-player-me
 url: https://raw.githubusercontent.com/api-evangelist/ready-player-me/refs/heads/main/apis.yml
+specificationVersion: '0.23'
 apis:
   - aid: ready-player-me:ready-player-me-avatars-api
     name: Ready Player Me Avatars API
