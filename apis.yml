@@ -44,6 +44,10 @@ apis:
     tags:
       - Authentication
       - Identity
+      - User
+    tags_raw:
+      - Authentication
+      - Identity
       - Users
     humanURL: https://docs.readyplayer.me/ready-player-me/api-reference/rest-api/users
     baseURL: https://api.readyplayer.me/
