@@ -1,0 +1,73 @@
+generated: '2026-08-26'
+method: searched
+source: https://registry.npmjs.org/@readyplayerme/visage, https://registry.npmjs.org/@readyplayerme/react-avatar-creator, https://api.github.com/orgs/readyplayerme
+specification: API Commons Components
+specificationVersion: '0.1'
+provider: Ready Player Me
+providerId: ready-player-me
+description: >-
+  Client-side and embeddable surfaces Ready Player Me published for integrators. The product was
+  delivered as much through embedded UI as through REST: a hosted Avatar Creator iframe, framework
+  wrappers around it, and a web renderer for the resulting avatars. All of these still install from
+  npm and GitHub, but the two that depend on hosted Ready Player Me endpoints no longer function —
+  the platform was shut down 2026-01-31 and every readyplayer.me host is now NXDOMAIN.
+service_status: retired
+families:
+  - name: Avatar Creator (hosted embed)
+    kind: hosted-iframe
+    functional: false
+    description: >-
+      The Avatar Creator was delivered as an iframe hosted on a per-studio subdomain, embedded in the
+      integrator's page or WebView. It handled the whole avatar-authoring flow and posted the resulting
+      avatar id/URL back to the host application.
+    components:
+      - name: Avatar Creator iframe
+        distribution: hosted
+        url: null
+        note: >-
+          Host removed from DNS; the embed URL cannot be recorded from a live source and is not
+          reconstructed here.
+      - name: '@readyplayerme/react-avatar-creator'
+        distribution: npm
+        version: 0.5.0
+        published: '2024-01-26'
+        url: https://www.npmjs.com/package/@readyplayerme/react-avatar-creator
+        repository: https://github.com/readyplayerme/rpm-react-avatar-creator
+        description: React wrapper exposing the hosted creator as a component with typed config and events.
+      - name: Example-iframe
+        distribution: github
+        url: https://github.com/readyplayerme/Example-iframe
+        description: Reference iframe integration.
+      - name: Example-React-Native
+        distribution: github
+        url: https://github.com/readyplayerme/Example-React-Native
+        description: Creator embedded in a React Native WebView.
+      - name: rpm-unreal-webview
+        distribution: github
+        url: https://github.com/readyplayerme/rpm-unreal-webview
+        description: In-engine web browser for hosting the creator inside Unreal.
+  - name: Avatar renderer (web)
+    kind: web-component-library
+    functional: partial
+    description: >-
+      React/three.js components for displaying avatars and 3D models in the browser. Still installs and
+      still renders a .glb the integrator supplies; only resolution of an avatar by Ready Player Me URL
+      is dead.
+    components:
+      - name: '@readyplayerme/visage'
+        distribution: npm
+        version: 6.16.0
+        published: '2025-07-30'
+        url: https://www.npmjs.com/package/@readyplayerme/visage
+        repository: https://github.com/readyplayerme/visage
+        description: Avatar, Exhibit and animation components built on react-three-fiber.
+loaders:
+  - name: '@readyplayerme/visage'
+    registry: npm
+    note: Loaded as a normal npm dependency; no CDN script tag published by the provider.
+cdn:
+  published: false
+  note: No first-party unpkg/jsDelivr distribution documented; the docs host that would have named one is offline.
+cross_references:
+  packages: packages/ready-player-me-packages.yml
+  lifecycle: lifecycle/ready-player-me-lifecycle.yml

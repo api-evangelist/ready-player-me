@@ -6,6 +6,19 @@ providerId: ready-player-me
 created: '2026-05-25'
 modified: '2026-05-25'
 reconciled: false
+generated: '2026-08-26'
+method: derived
+limit_count: 0
+headers: []
+status_on_exhaustion: unknown
+note: >-
+  method set 2026-08-26. Ready Player Me published NO numeric rate limits, and none can now be
+  found or observed: docs.readyplayer.me and api.readyplayer.me were removed from DNS after the
+  2026-01-31 platform shutdown (curl exit 6 on 2026-08-26). limit_count is an honest 0 — the
+  policies below name throttled surfaces and scopes, not published numbers, and none of the three
+  OpenAPI definitions declares a 429 response or any X-RateLimit-*/RateLimit-*/Retry-After header.
+  An agent had no runtime rate-limit signal from this API. See lifecycle/ready-player-me-lifecycle.yml.
+status: retired
 tags:
   - Avatars
   - Rate Limits

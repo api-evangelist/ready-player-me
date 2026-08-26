@@ -1,0 +1,46 @@
+overlay: 1.0.0
+info:
+  title: API Evangelist enhancements — Ready Player Me Avatars API
+  version: 1.0.0
+x-provenance:
+  generated: '2026-08-26'
+  method: generated
+  source: openapi/ready-player-me-avatars-api-openapi.yml
+  note: >-
+    Overlay of API Evangelist enhancements. The original definition is never mutated. Two
+    enhancements: (1) repair the copied info block — the Avatars definition carries the title
+    "Ready Player Me Assets Avatars API" and the Assets description verbatim, an artifact of the
+    per-tag split; (2) mark the surface retired, since the public platform was shut down on
+    2026-01-31 after Netflix's acquisition and api.readyplayer.me is now NXDOMAIN.
+extends: openapi/ready-player-me-avatars-api-openapi.yml
+actions:
+  - target: $.info
+    description: Correct the title and description carried over from the Assets definition during the per-tag split.
+    update:
+      title: Ready Player Me Avatars API
+      description: >-
+        Create, retrieve, update, render and delete Ready Player Me cross-platform avatars —
+        draft/save two-phase creation, template-based creation, asset equipping, colour-palette
+        discovery, render precompilation, and binary glTF (.glb) plus 2D PNG renders. Scoped to a
+        studio application via the X-APP-ID header.
+  - target: $.info
+    description: Record the retirement of the public platform.
+    update:
+      x-lifecycle:
+        status: retired
+        service_end: '2026-01-31'
+        reason: Public platform shut down following Netflix's December 2025 acquisition.
+        host_resolves: false
+        evidence: lifecycle/ready-player-me-lifecycle.yml
+  - target: $.servers[0]
+    description: Flag the production server as unreachable rather than silently leaving it callable-looking.
+    update:
+      description: Production (RETIRED — api.readyplayer.me returned NXDOMAIN on 2026-08-26)
+  - target: $
+    description: Record the domain standard the contract declares for itself.
+    update:
+      x-domain-standards:
+        - id: gltf-2.0
+          name: glTF 2.0 / GLB (Khronos Group)
+          evidence: model/gltf-binary declared on getAvatarGlb and getAvatarGlbV2
+          reference: https://registry.khronos.org/glTF/specs/2.0/glTF-2.0.html

@@ -1,0 +1,166 @@
+generated: '2026-08-26'
+method: probed
+source: direct HTTPS probe of each host, 2026-08-26
+specification: API Commons WellKnown
+specificationVersion: '0.1'
+provider: Ready Player Me
+providerId: ready-player-me
+description: 'Well-known probe of every Ready Player Me host named in apis.yml and in the openapi/ servers[]
+  blocks. Every path on every host failed at DNS resolution: readyplayer.me publishes MX and TXT records
+  but no A record, and api./docs./studio.readyplayer.me are NXDOMAIN (checked against 8.8.8.8 and 1.1.1.1).
+  The public platform was shut down on 2026-01-31 following Netflix''s December 2025 acquisition — see
+  lifecycle/ready-player-me-lifecycle.yml. This is a recorded absence, not a served surface: NO WellKnown,
+  SecurityTxt or AgentCard pointer is emitted in apis.yml, because none of these documents is served.'
+result: no-dns
+documents_served: 0
+hosts:
+- host: api.readyplayer.me
+  resolves: false
+  note: NXDOMAIN / no A record — curl exit 6, connection never attempted
+  documents:
+  - path: /.well-known/security.txt
+    status: 0
+    file: null
+    error: dns-nxdomain
+  - path: /.well-known/openid-configuration
+    status: 0
+    file: null
+    error: dns-nxdomain
+  - path: /.well-known/oauth-authorization-server
+    status: 0
+    file: null
+    error: dns-nxdomain
+  - path: /.well-known/oauth-protected-resource
+    status: 0
+    file: null
+    error: dns-nxdomain
+  - path: /.well-known/api-catalog
+    status: 0
+    file: null
+    error: dns-nxdomain
+  - path: /.well-known/ai-plugin.json
+    status: 0
+    file: null
+    error: dns-nxdomain
+  - path: /.well-known/agent-card.json
+    status: 0
+    file: null
+    error: dns-nxdomain
+  - path: /.well-known/agent.json
+    status: 0
+    file: null
+    error: dns-nxdomain
+- host: docs.readyplayer.me
+  resolves: false
+  note: NXDOMAIN / no A record — curl exit 6, connection never attempted
+  documents:
+  - path: /.well-known/security.txt
+    status: 0
+    file: null
+    error: dns-nxdomain
+  - path: /.well-known/openid-configuration
+    status: 0
+    file: null
+    error: dns-nxdomain
+  - path: /.well-known/oauth-authorization-server
+    status: 0
+    file: null
+    error: dns-nxdomain
+  - path: /.well-known/oauth-protected-resource
+    status: 0
+    file: null
+    error: dns-nxdomain
+  - path: /.well-known/api-catalog
+    status: 0
+    file: null
+    error: dns-nxdomain
+  - path: /.well-known/ai-plugin.json
+    status: 0
+    file: null
+    error: dns-nxdomain
+  - path: /.well-known/agent-card.json
+    status: 0
+    file: null
+    error: dns-nxdomain
+  - path: /.well-known/agent.json
+    status: 0
+    file: null
+    error: dns-nxdomain
+- host: readyplayer.me
+  resolves: false
+  note: NXDOMAIN / no A record — curl exit 6, connection never attempted
+  documents:
+  - path: /.well-known/security.txt
+    status: 0
+    file: null
+    error: dns-nxdomain
+  - path: /.well-known/openid-configuration
+    status: 0
+    file: null
+    error: dns-nxdomain
+  - path: /.well-known/oauth-authorization-server
+    status: 0
+    file: null
+    error: dns-nxdomain
+  - path: /.well-known/oauth-protected-resource
+    status: 0
+    file: null
+    error: dns-nxdomain
+  - path: /.well-known/api-catalog
+    status: 0
+    file: null
+    error: dns-nxdomain
+  - path: /.well-known/ai-plugin.json
+    status: 0
+    file: null
+    error: dns-nxdomain
+  - path: /.well-known/agent-card.json
+    status: 0
+    file: null
+    error: dns-nxdomain
+  - path: /.well-known/agent.json
+    status: 0
+    file: null
+    error: dns-nxdomain
+- host: studio.readyplayer.me
+  resolves: false
+  note: NXDOMAIN / no A record — curl exit 6, connection never attempted
+  documents:
+  - path: /.well-known/security.txt
+    status: 0
+    file: null
+    error: dns-nxdomain
+  - path: /.well-known/openid-configuration
+    status: 0
+    file: null
+    error: dns-nxdomain
+  - path: /.well-known/oauth-authorization-server
+    status: 0
+    file: null
+    error: dns-nxdomain
+  - path: /.well-known/oauth-protected-resource
+    status: 0
+    file: null
+    error: dns-nxdomain
+  - path: /.well-known/api-catalog
+    status: 0
+    file: null
+    error: dns-nxdomain
+  - path: /.well-known/ai-plugin.json
+    status: 0
+    file: null
+    error: dns-nxdomain
+  - path: /.well-known/agent-card.json
+    status: 0
+    file: null
+    error: dns-nxdomain
+  - path: /.well-known/agent.json
+    status: 0
+    file: null
+    error: dns-nxdomain
+agent_card:
+  found: false
+  paths_probed:
+  - /.well-known/agent-card.json
+  - /.well-known/agent.json
+  note: No A2A agent card. Nothing written to a2a/ — search-only artifact, never derived.

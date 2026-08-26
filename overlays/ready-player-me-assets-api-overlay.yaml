@@ -1,0 +1,43 @@
+overlay: 1.0.0
+info:
+  title: API Evangelist enhancements — Ready Player Me Assets API
+  version: 1.0.0
+x-provenance:
+  generated: '2026-08-26'
+  method: generated
+  source: openapi/ready-player-me-assets-api-openapi.yml
+  note: >-
+    Overlay of API Evangelist enhancements. The original definition is never mutated. Marks the
+    surface retired (public platform shut down 2026-01-31; api.readyplayer.me is NXDOMAIN) and
+    records the glTF 2.0 domain standard the contract declares in its own response media types.
+extends: openapi/ready-player-me-assets-api-openapi.yml
+actions:
+  - target: $.info
+    description: Record the retirement of the public platform.
+    update:
+      x-lifecycle:
+        status: retired
+        service_end: '2026-01-31'
+        reason: Public platform shut down following Netflix's December 2025 acquisition.
+        host_resolves: false
+        evidence: lifecycle/ready-player-me-lifecycle.yml
+  - target: $.servers[0]
+    description: Flag the production server as unreachable.
+    update:
+      description: Production (RETIRED — api.readyplayer.me returned NXDOMAIN on 2026-08-26)
+  - target: $
+    description: Record the domain standard the contract declares for itself.
+    update:
+      x-domain-standards:
+        - id: gltf-2.0
+          name: glTF 2.0 / GLB (Khronos Group)
+          evidence: model/gltf-binary declared on getAssetGlb
+          reference: https://registry.khronos.org/glTF/specs/2.0/glTF-2.0.html
+  - target: $.paths['/v1/assets'].get
+    description: Record the pagination convention the operation implements.
+    update:
+      x-pagination:
+        style: page-number
+        params: [page, limit]
+        response_object: pagination
+        fields: [page, limit, totalDocs, totalPages]

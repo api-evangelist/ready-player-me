@@ -1,0 +1,96 @@
+# Ready Player Me
+
+> RETIRED. Ready Player Me was a cross-game avatar platform: a hosted Avatar Creator plus REST
+> APIs that produced interoperable 3D avatars as binary glTF (.glb) and 2D PNG renders for Unity,
+> Unreal, web, iOS and Android. Netflix acquired the company in December 2025 and the public
+> platform — Avatar Creator, PlayerZero and the developer APIs at api.readyplayer.me — was shut
+> down on 2026-01-31. As of 2026-08-26 readyplayer.me publishes MX and TXT records but no A
+> record, and api.readyplayer.me, docs.readyplayer.me and studio.readyplayer.me are NXDOMAIN.
+
+## Status — read this before generating any integration
+
+- **Do not generate code that calls api.readyplayer.me.** The host does not resolve. Every
+  operation listed below is documentary; none of it is callable.
+- **No replacement API was published.** The technology moved inside Netflix products. Ready
+  Player Me published no migration path.
+- **Avatars already exported as .glb still work.** The payload is a standard Khronos glTF 2.0
+  binary container with no call-home, so files downloaded before 2026-01-31 load in any
+  glTF-capable engine. Anything that resolved an avatar or asset by URL at runtime is broken.
+- **The SDKs still install but are inert** where they depend on hosted endpoints. The
+  readyplayerme GitHub organization is still public; rpm-unity-sdk-core is archived.
+
+## Interfaces (historical)
+
+Base URL: https://api.readyplayer.me — RETIRED, does not resolve
+Authentication: apiKey in the `X-APP-ID` header (studio application id). The Auth API additionally
+minted opaque token/refreshToken pairs.
+
+### Avatars API — 14 operations
+createAvatar (POST /v2/avatars) — create a DRAFT avatar
+listAvatarTemplates (GET /v2/avatars/templates)
+createAvatarFromTemplate (POST /v2/avatars/templates/{templateId})
+getAvatarMetadata (GET /v2/avatars/{avatarId})
+updateAvatar (PATCH /v2/avatars/{avatarId}) — equip/unequip assets
+saveAvatar (PUT /v2/avatars/{avatarId}) — commit the draft
+deleteAvatar (DELETE /v2/avatars/{avatarId})
+deleteAvatarDraft (DELETE /v2/avatars/{avatarId}/draft) — discard before commit
+precompileAvatar (POST /v2/avatars/{avatarId}/precompile)
+getAvatarColors (GET /v2/avatars/{avatarId}/colors)
+listUserAvatars (GET /v1/avatars)
+getAvatarGlb (GET /v1/avatars/{avatarId}.glb) — model/gltf-binary
+getAvatarPng (GET /v1/avatars/{avatarId}.png) — image/png
+getAvatarGlbV2 (GET /v2/avatars/{avatarId}.glb) — model/gltf-binary
+
+### Assets API — 4 operations
+listAssets (GET /v1/assets) — page/limit pagination; filter by type, gender, application, user
+getAssetGlb (GET /v1/assets/{assetId}.glb) — model/gltf-binary
+getAssetThumbnail (GET /v1/assets/{assetId}/thumbnail.png) — image/png
+listPhoenixAssets (GET /v1/phoenix-assets)
+
+Asset types: hair, beard, outfit, shirt, top, bottom, footwear, headwear, facewear, glasses,
+costume, custom, baseModel. Gender: masculine, feminine, neutral.
+
+### Auth API — 5 operations
+createAnonymousUser (POST /api/users)
+authStart (POST /api/auth/start)
+authLogin (POST /api/auth/login)
+authRefresh (POST /api/auth/refresh)
+getAvatarToken (POST /v1/auth/token)
+
+## Machine-readable artifacts in this repo
+
+- openapi/ready-player-me-avatars-api-openapi.yml — OpenAPI 3.0.3
+- openapi/ready-player-me-assets-api-openapi.yml — OpenAPI 3.0.3
+- openapi/ready-player-me-auth-api-openapi.yml — OpenAPI 3.0.3
+- overlays/ — API Evangelist Overlay 1.0.0 enhancements (retirement markers, info repairs)
+- lifecycle/ready-player-me-lifecycle.yml — acquisition, shutdown date, DNS evidence
+- conventions/ready-player-me-conventions.yml — auth, pagination, versioning, reversibility
+- data-model/ready-player-me-data-model.yml — entity graph
+- conformance/ready-player-me-conformance.yml — standards, incl. glTF 2.0 domain standard
+- packages/ready-player-me-packages.yml — npm + GitHub SDK currency
+- components/ready-player-me-components.yml — embeddable Avatar Creator / renderer
+- well-known/ready-player-me-well-known.yml — well-known probe (all hosts NXDOMAIN)
+- authentication/ready-player-me-authentication.yml
+- plans/, rate-limits/, finops/, vocabulary/, json-schema/, examples/, collections/
+
+## Not available
+
+- No error catalog — the definitions declare no 4xx/5xx responses at all.
+- No AsyncAPI, no webhook catalog captured before the docs host was withdrawn.
+- No MCP server and no A2A agent card — probed 2026-08-26, hosts do not resolve.
+- No status page, no published deprecation policy, no OAuth scopes (API-key auth only).
+- No Agent Skills are published for this provider, deliberately: packaged skills would instruct
+  agents to call an API that no longer exists.
+
+## Related
+
+- GitHub organization: https://github.com/readyplayerme
+- Acquisition coverage: https://techcrunch.com/2025/12/19/netflix-acquires-gaming-avatar-maker-ready-player-me/
+- glTF 2.0: https://registry.khronos.org/glTF/specs/2.0/glTF-2.0.html
+
+---
+generated: 2026-08-26
+method: generated
+source: apis.yml, openapi/, and the 2026-08-26 DNS/HTTP probe recorded in lifecycle/
+note: /llms.txt could not be fetched from the provider — docs.readyplayer.me and readyplayer.me
+      do not resolve. This file is generated from the catalog, not harvested.

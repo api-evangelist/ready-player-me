@@ -6,6 +6,18 @@ providerId: ready-player-me
 created: '2026-05-25'
 modified: '2026-05-25'
 reconciled: false
+generated: '2026-08-26'
+method: derived
+plan_count: 3
+note: >-
+  method set 2026-08-26. These tiers were never read from a live machine-readable pricing endpoint
+  and cannot now be re-verified: readyplayer.me and its /developers pricing page were removed from
+  DNS after the public platform shut down on 2026-01-31 (Netflix acquisition, December 2025) —
+  see lifecycle/ready-player-me-lifecycle.yml. Both listed source URLs returned curl exit 6
+  (could not resolve host) on 2026-08-26. No price figure below is a published number; Studio and
+  Enterprise are recorded as Quote/Call because no rate card was captured. The plans are RETIRED —
+  none is purchasable.
+status: retired
 tags:
   - Avatars
   - 3D

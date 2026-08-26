@@ -1,0 +1,123 @@
+generated: '2026-08-26'
+method: searched
+source: https://techcrunch.com/2025/12/19/netflix-acquires-gaming-avatar-maker-ready-player-me/, https://variety.com/2025/digital/news/netflix-acquires-ready-player-me-games-avatar-creation-1236612915/,
+  DNS probe of readyplayer.me (2026-08-26)
+specification: API Commons Lifecycle
+specificationVersion: '0.1'
+provider: Ready Player Me
+providerId: ready-player-me
+status: retired
+description: 'The Ready Player Me public developer platform is RETIRED. Netflix acquired Ready Player Me in December
+  2025 and the public surface — the hosted Avatar Creator, PlayerZero, and the developer APIs at api.readyplayer.me
+  — was shut down on 2026-01-31. As of 2026-08-26 the retirement is complete at the DNS layer: readyplayer.me publishes
+  MX and TXT records but no A record, and api.readyplayer.me, docs.readyplayer.me and studio.readyplayer.me are
+  all NXDOMAIN. Avatars already exported as .glb/glTF files continue to work offline in game engines; anything that
+  resolved an avatar or asset at runtime no longer does.'
+retirement:
+  announced: '2025-12-19'
+  announcement_basis: Acquisition reported 2025-12-19 (TechCrunch, Variety). Ready Player Me's own shutdown notice
+    was published on readyplayer.me / docs.readyplayer.me, both of which have since been removed from DNS, so the
+    provider's first-party notice is no longer retrievable.
+  service_end: '2026-01-31'
+  dns_removed_observed: '2026-08-26'
+  acquirer: Netflix, Inc.
+  successor: none published — the technology moved inside Netflix products; no public replacement API
+  migration_path: none published by the provider
+  scope:
+  - Hosted Avatar Creator (readyplayer.me)
+  - PlayerZero
+  - Developer REST APIs (api.readyplayer.me)
+  - Developer documentation (docs.readyplayer.me)
+  - Studio console (studio.readyplayer.me)
+  unaffected:
+  - Previously exported .glb / glTF avatar files (local, no runtime dependency)
+  - The readyplayerme GitHub organization — 30 public repositories, still reachable 2026-08-26
+versioning:
+  scheme: path
+  observed_versions:
+  - v1
+  - v2
+  policy_published: false
+  note: The REST surface carried both /v1 and /v2 path prefixes side by side (e.g. /v1/avatars and /v2/avatars).
+    No written versioning policy was captured before docs.readyplayer.me was removed.
+deprecation:
+  policy_published: false
+  sunset_header: unknown
+  deprecation_header: unknown
+  rfc8594: false
+  note: No published deprecation policy and no evidence of RFC 8594 Sunset/Deprecation headers. The API was not
+    deprecated through a staged policy; it was withdrawn wholesale on 2026-01-31 alongside the acquisition. No Deprecation
+    pointer is emitted in apis.yml because asserting one would credit a policy the provider never published.
+sla:
+  published: false
+status_page:
+  published: false
+  note: No status page was found and none can now be probed — every readyplayer.me host is NXDOMAIN. No StatusPage
+    pointer is emitted.
+deprecated_operations:
+  note: 'All 23 operations across the three OpenAPI definitions in openapi/ are effectively retired as of 2026-01-31;
+    none is individually marked `deprecated: true` in the specs, which predate the shutdown.'
+  count: 23
+evidence:
+- url: https://readyplayer.me/
+  status: 0
+  detail: curl exit 6 — could not resolve host; apex has MX + TXT but no A record
+  checked: '2026-08-26'
+- url: https://api.readyplayer.me/
+  status: 0
+  detail: NXDOMAIN (verified against 8.8.8.8 and 1.1.1.1)
+  checked: '2026-08-26'
+- url: https://docs.readyplayer.me/
+  status: 0
+  detail: NXDOMAIN
+  checked: '2026-08-26'
+- url: https://studio.readyplayer.me/
+  status: 0
+  detail: NXDOMAIN
+  checked: '2026-08-26'
+- url: https://api.github.com/orgs/readyplayerme
+  status: 200
+  detail: organization live, 30 public repos, org record updated 2026-04-07
+  checked: '2026-08-26'
+- url: https://techcrunch.com/2025/12/19/netflix-acquires-gaming-avatar-maker-ready-player-me/
+  status: 200
+  detail: acquisition report, 2025-12-19
+  checked: '2026-08-26'
+- url: http://archive.org/wayback/available?url=docs.readyplayer.me/ready-player-me/api-reference
+  status: 200
+  detail: Wayback holds a 2025-06-16 snapshot of the API reference; the snapshot BODY could not be retrieved from
+    this run (web.archive.org unreachable from the probe host, one attempt, not retried), so the archived reference
+    was not used to enrich this artifact.
+  checked: '2026-08-26'
+- url: https://www.linkedin.com/company/ready-player-me/
+  status: 404
+  detail: 404 on two attempts with browser User-Agents. LinkedIn also 404s anonymous crawlers on live pages, so
+    this is recorded as an observation, NOT treated as confirmed dead — the LinkedIn pointer was left in apis.yml.
+  checked: '2026-08-26'
+- url: https://twitter.com/readyplayerme
+  status: 200
+  detail: live
+  checked: '2026-08-26'
+- url: https://www.youtube.com/@readyplayerme
+  status: 200
+  detail: live
+  checked: '2026-08-26'
+- url: https://discord.com/invite/readyplayerme
+  status: 200
+  detail: live
+  checked: '2026-08-26'
+pointers_removed_from_apis_yml:
+- https://readyplayer.me/ (Portal)
+- https://readyplayer.me/developers (Portal)
+- https://readyplayer.me/hub (Portal)
+- https://readyplayer.me/blog (Blog)
+- https://studio.readyplayer.me/ (Portal)
+- https://docs.readyplayer.me/ (Documentation)
+- https://docs.readyplayer.me/ready-player-me/api-reference (Documentation, x2)
+- https://docs.readyplayer.me/ready-player-me/integration-guides (Documentation)
+- https://docs.readyplayer.me/ready-player-me/api-reference/rest-api/assets (Documentation)
+- https://docs.readyplayer.me/ready-player-me/api-reference/rest-api/users (Documentation)
+pointers_removed_note: '11 pointers asserting pages the provider no longer serves were removed from apis.yml on
+  2026-08-26. humanURL and baseURL were LEFT in place on each apis[] entry: they are the historical identity of
+  the contract rather than link-property claims, and removing them would leave the entries without an anchor. Both
+  are known dead.'

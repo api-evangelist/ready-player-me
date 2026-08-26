@@ -1,0 +1,156 @@
+generated: '2026-08-26'
+method: derived
+source: openapi/ready-player-me-avatars-api-openapi.yml, openapi/ready-player-me-assets-api-openapi.yml, openapi/ready-player-me-auth-api-openapi.yml
+specification: API Commons Conventions
+specificationVersion: '0.1'
+provider: Ready Player Me
+providerId: ready-player-me
+description: >-
+  Cross-cutting runtime semantics for the Ready Player Me REST surface, derived from the three
+  OpenAPI definitions in openapi/. The provider's own documentation host (docs.readyplayer.me)
+  was removed from DNS after the 2026-01-31 platform shutdown, so nothing here could be upgraded
+  from the docs: every field below is either read out of the contract or recorded as unknown.
+  The API is offline — this artifact documents how it behaved, not how to call it today.
+service_status: retired
+service_status_source: lifecycle/ready-player-me-lifecycle.yml
+authentication:
+  style: api-key
+  header: X-APP-ID
+  scheme_name: AppId
+  applied: global security requirement on all three definitions
+  bearer_tokens: >-
+    The Auth API additionally mints avatar/user tokens (authLogin, authRefresh, getAvatarToken)
+    returning token + refreshToken. The specs do not declare a corresponding http/bearer
+    securityScheme, so how those tokens were presented is not recorded in the contract.
+  detail: authentication/ready-player-me-authentication.yml
+idempotency:
+  supported: false
+  header: null
+  scope: null
+  retention: null
+  note: >-
+    No idempotency key header, parameter or extension appears anywhere in the three definitions,
+    and the docs are unreachable. Writes (createAvatar, createAvatarFromTemplate, precompileAvatar)
+    carry no replay-safety mechanism in the contract. NO Idempotency pointer is emitted.
+pagination:
+  style: page-number
+  params:
+    - name: page
+      in: query
+      default: 1
+      applies_to: listAssets
+    - name: limit
+      in: query
+      default: 16
+      applies_to: listAssets
+  response_fields:
+    - pagination.page
+    - pagination.limit
+    - pagination.totalDocs
+    - pagination.totalPages
+  cursor: false
+  note: >-
+    Offset/page-number pagination on the Assets listing: `page` + `limit` query parameters and a
+    `pagination` object on the AssetList envelope carrying page, limit, totalDocs and totalPages.
+    listUserAvatars (GET /v1/avatars) declares no pagination parameters, so the convention is not
+    applied uniformly across the surface.
+filtering:
+  supported: true
+  params:
+    - name: type
+      applies_to: listAssets
+      values: [hair, beard, outfit, and other asset types enumerated in the spec]
+  note: Asset listing filtered by asset type and scoped to the calling application via X-APP-ID.
+field_expansion:
+  supported: false
+sparse_fieldsets:
+  supported: false
+metadata:
+  supported: false
+  note: No customer-defined metadata/annotation field on any schema.
+request_id_tracing:
+  supported: unknown
+  header: null
+  note: No request-id/correlation header declared in the contract.
+versioning:
+  style: path
+  versions: [v1, v2]
+  note: >-
+    /v1 and /v2 ran side by side — /v1/avatars (list, .glb, .png) alongside /v2/avatars (create,
+    update, save, delete, precompile, colors, templates). See lifecycle/ready-player-me-lifecycle.yml.
+error_envelope:
+  format: unknown
+  rfc9457: false
+  note: >-
+    NONE of the 23 operations in the three definitions declares a single 4xx or 5xx response —
+    only 200/201/204. There is therefore no error shape to catalog, which is why no
+    errors/ artifact is emitted: deriving one would mean inventing it. This is a real
+    contract-quality gap in the specs, recorded rather than papered over.
+rate_limit_signaling:
+  headers: []
+  status_on_exhaustion: unknown
+  note: >-
+    No X-RateLimit-*/RateLimit-*/Retry-After headers declared and no 429 response in any
+    definition. See rate-limits/ready-player-me-rate-limits.yml.
+content_negotiation:
+  media_types:
+    - application/json
+    - model/gltf-binary
+    - image/png
+  note: >-
+    Binary avatar and asset delivery is glTF-binary (.glb) plus 2D PNG renders — the format
+    is part of the URL (/v1/avatars/{avatarId}.glb, .png), not an Accept header.
+reversibility:
+  grade: documented
+  applicable: true
+  note: >-
+    The contract exposes real reversal operations on the avatar write surface, but NO stated
+    window for any of them, and the documentation that might have stated one is offline. Grade is
+    `documented` (reversal path exists) rather than `verified` (path + stated window). No window is
+    asserted here because the provider never published one that this run could read.
+  surfaces:
+    - write_operation: createAvatar
+      write_operation_id: createAvatar
+      description: Creates a DRAFT avatar (POST /v2/avatars).
+      reversal: deleteAvatarDraft
+      reversal_operation_id: deleteAvatarDraft
+      reversal_path: DELETE /v2/avatars/{avatarId}/draft
+      window: null
+      window_source: null
+      note: >-
+        Draft/save is a two-phase write — a draft exists until saveAvatar (PUT /v2/avatars/{avatarId})
+        commits it, and deleteAvatarDraft discards it. That is a genuine pre-commit escape hatch, but
+        the specs state no expiry or deadline for the draft.
+    - write_operation: saveAvatar
+      write_operation_id: saveAvatar
+      description: Commits a draft avatar (PUT /v2/avatars/{avatarId}).
+      reversal: deleteAvatar
+      reversal_operation_id: deleteAvatar
+      reversal_path: DELETE /v2/avatars/{avatarId}
+      window: null
+      window_source: null
+      note: >-
+        Deletion is destructive, not a restore — there is no undelete/restore operation anywhere in
+        the definitions, so a committed avatar could be removed but not brought back.
+    - write_operation: updateAvatar
+      write_operation_id: updateAvatar
+      description: Partial update of avatar assets (PATCH /v2/avatars/{avatarId}).
+      reversal: null
+      reversal_operation_id: null
+      window: null
+      note: No revert/rollback/undo operation; a caller would have to re-PATCH the prior asset set itself.
+    - write_operation: createAnonymousUser
+      write_operation_id: createAnonymousUser
+      description: Creates an anonymous user (POST /api/users).
+      reversal: null
+      window: null
+      note: No user-delete operation is declared in the Auth definition.
+dry_run_mode:
+  supported: false
+  note: No dry-run/preview/validate-only parameter in any operation. precompileAvatar warms a render, it does not simulate a write.
+cross_references:
+  authentication: authentication/ready-player-me-authentication.yml
+  lifecycle: lifecycle/ready-player-me-lifecycle.yml
+  rate_limits: rate-limits/ready-player-me-rate-limits.yml
+  data_model: data-model/ready-player-me-data-model.yml
+  errors: null

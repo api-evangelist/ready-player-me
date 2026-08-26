@@ -1,6 +1,7 @@
-generated: '2026-07-11'
+generated: '2026-08-26'
 method: derived
-source: openapi/ready-player-me-assets-api-openapi.yml, openapi/ready-player-me-avatars-api-openapi.yml
+source: openapi/ready-player-me-assets-api-openapi.yml, openapi/ready-player-me-auth-api-openapi.yml,
+  openapi/ready-player-me-avatars-api-openapi.yml
 summary:
   types:
   - apiKey
@@ -13,4 +14,5 @@ schemes:
   parameter: X-APP-ID
   sources:
   - openapi/ready-player-me-assets-api-openapi.yml
+  - openapi/ready-player-me-auth-api-openapi.yml
   - openapi/ready-player-me-avatars-api-openapi.yml

@@ -1,0 +1,105 @@
+generated: '2026-08-26'
+method: derived
+source: openapi/ready-player-me-avatars-api-openapi.yml, openapi/ready-player-me-assets-api-openapi.yml, openapi/ready-player-me-auth-api-openapi.yml
+specification: API Commons Conformance
+specificationVersion: '0.1'
+provider: Ready Player Me
+providerId: ready-player-me
+description: >-
+  Cross-cutting and domain-standard conformance for the Ready Player Me REST surface, read from
+  the contract itself. The provider's compliance and trust pages could not be searched — every
+  readyplayer.me host was removed from DNS after the 2026-01-31 platform shutdown — so no
+  compliance claim is recorded and NO Compliance pointer is emitted. Reward-only: a `false` row
+  below is an honest absence in the contract, not a judgement about the company.
+entries:
+  - id: oauth2
+    name: OAuth 2.0
+    conforms: false
+    evidence: >-
+      No oauth2 securityScheme in any of the three definitions. The only declared scheme is an
+      apiKey in the X-APP-ID header. The Auth API mints opaque token/refreshToken pairs through
+      its own /api/auth/* endpoints rather than an OAuth flow.
+  - id: oidc
+    name: OpenID Connect
+    conforms: false
+    evidence: No openIdConnect securityScheme; /.well-known/openid-configuration unreachable (host NXDOMAIN, 2026-08-26).
+  - id: rfc9457
+    name: RFC 9457 Problem Details for HTTP APIs
+    conforms: false
+    evidence: >-
+      No application/problem+json response anywhere. None of the 23 operations declares any 4xx or
+      5xx response at all, so there is no error format to assess.
+  - id: pagination
+    name: Pagination
+    conforms: true
+    evidence: >-
+      Page-number pagination on GET /v1/assets — `page` and `limit` query parameters (defaults 1 and
+      16) and an AssetList.pagination object carrying page, limit, totalDocs, totalPages. Not applied
+      to GET /v1/avatars, so coverage is partial.
+  - id: idempotency
+    name: Idempotency keys
+    conforms: false
+    evidence: No idempotency header, parameter or extension in any definition. See conventions/ready-player-me-conventions.yml.
+  - id: json-api
+    name: JSON:API
+    conforms: false
+    evidence: >-
+      The `{ data: ... }` envelope on AvatarCreateRequest/AvatarUpdateRequest/ColorPalette resembles
+      JSON:API superficially, but there is no application/vnd.api+json media type, no `type`/`attributes`
+      resource object and no `links`/`included` members. Recorded false rather than claimed on resemblance.
+  - id: scim
+    name: SCIM
+    conforms: false
+    evidence: No urn:ietf:params:scim schema URNs; user management is bespoke (/api/users, /api/auth/*).
+  - id: odata
+    name: OData
+    conforms: false
+    evidence: No $metadata surface, no $filter/$select/$expand system query options.
+  - id: fapi
+    name: FAPI
+    conforms: false
+    evidence: Not a financial-grade surface; no OAuth/OIDC to profile.
+  - id: fhir
+    name: FHIR
+    conforms: false
+    evidence: Not a healthcare surface.
+  - id: psd2
+    name: PSD2
+    conforms: false
+    evidence: Not a payments surface.
+domain_standards:
+  - id: gltf-2.0
+    name: glTF 2.0 / GLB (Khronos Group)
+    market: 3D asset interchange for real-time engines
+    conforms: true
+    evidence: >-
+      The contract declares the glTF binary container as its primary delivery format, in the
+      responses themselves rather than in prose: `model/gltf-binary` is the declared response media
+      type on getAvatarGlb (GET /v1/avatars/{avatarId}.glb), getAvatarGlbV2 (GET /v2/avatars/{avatarId}.glb)
+      and getAssetGlb (GET /v1/assets/{assetId}.glb), and the `.glb` extension is baked into the path
+      template. Asset.modelUrl points at the same container.
+    spec_location:
+      - openapi/ready-player-me-avatars-api-openapi.yml → paths./v1/avatars/{avatarId}.glb.get.responses.200.content.model/gltf-binary
+      - openapi/ready-player-me-avatars-api-openapi.yml → paths./v2/avatars/{avatarId}.glb.get.responses.200.content.model/gltf-binary
+      - openapi/ready-player-me-assets-api-openapi.yml → paths./v1/assets/{assetId}.glb.get.responses.200.content.model/gltf-binary
+    reference: https://registry.khronos.org/glTF/specs/2.0/glTF-2.0.html
+    note: >-
+      This is the reason exported Ready Player Me avatars still work after the platform shutdown:
+      the payload is a standard, self-contained Khronos container, so a .glb downloaded before
+      2026-01-31 loads in any glTF-capable engine with no bespoke connector and no call home.
+      Only the runtime resolution of an avatar by id died with the API.
+  - id: png
+    name: PNG (ISO/IEC 15948)
+    market: 2D render delivery
+    conforms: true
+    evidence: >-
+      `image/png` declared as the response media type on getAvatarPng (GET /v1/avatars/{avatarId}.png)
+      and getAssetThumbnail (GET /v1/assets/{assetId}/thumbnail.png).
+compliance:
+  claims_found: []
+  certifications: []
+  note: >-
+    None searched successfully. readyplayer.me, docs.readyplayer.me and studio.readyplayer.me are all
+    NXDOMAIN as of 2026-08-26 (see well-known/ready-player-me-well-known.yml). The plans artifact
+    mentions SOC 2 controls as an enterprise-tier element, but that is a sales-page recollection with
+    no reachable source, so it is NOT recorded here as a certification and no Compliance pointer is emitted.

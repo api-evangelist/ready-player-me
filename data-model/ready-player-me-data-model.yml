@@ -1,0 +1,135 @@
+generated: '2026-08-26'
+method: derived
+source: openapi/ready-player-me-avatars-api-openapi.yml, openapi/ready-player-me-assets-api-openapi.yml, openapi/ready-player-me-auth-api-openapi.yml
+specification: API Commons DataModel
+specificationVersion: '0.1'
+provider: Ready Player Me
+providerId: ready-player-me
+description: >-
+  Entity graph for the Ready Player Me REST surface, derived from the $ref links and id-reference
+  fields in the three OpenAPI definitions in openapi/. The object reference on docs.readyplayer.me
+  could not be consulted — that host was removed from DNS after the 2026-01-31 platform shutdown —
+  so id prefixes and any documented-but-unmodelled fields are recorded as unknown rather than guessed.
+entities:
+  - name: Avatar
+    schema: Avatar
+    source: openapi/ready-player-me-avatars-api-openapi.yml
+    identifier: id
+    id_format: unknown
+    fields: [id, partner, userId, bodyType, gender, assets]
+    operations: [createAvatar, createAvatarFromTemplate, getAvatarMetadata, updateAvatar, saveAvatar, deleteAvatar, deleteAvatarDraft, precompileAvatar, listUserAvatars, getAvatarGlb, getAvatarPng, getAvatarGlbV2]
+    representations:
+      - media_type: application/json
+        description: Avatar metadata.
+      - media_type: model/gltf-binary
+        description: Binary glTF (.glb) render of the avatar.
+      - media_type: image/png
+        description: 2D PNG render of the avatar.
+    lifecycle_states: [draft, saved]
+  - name: AvatarTemplate
+    schema: AvatarTemplate
+    source: openapi/ready-player-me-avatars-api-openapi.yml
+    identifier: id
+    fields: [id, imageUrl, gender]
+    operations: [listAvatarTemplates, createAvatarFromTemplate]
+  - name: Asset
+    schema: Asset
+    source: openapi/ready-player-me-assets-api-openapi.yml
+    identifier: id
+    fields: [id, name, type, gender, iconUrl, modelUrl, applicationIds]
+    operations: [listAssets, getAssetGlb, getAssetThumbnail, listPhoenixAssets]
+    enumerations:
+      type: [hair, beard, outfit, shirt, top, bottom, footwear, headwear, facewear, glasses, costume, custom, baseModel]
+      gender: [masculine, feminine, neutral]
+  - name: AssetList
+    schema: AssetList
+    source: openapi/ready-player-me-assets-api-openapi.yml
+    kind: envelope
+    fields: [data, pagination]
+    note: Collection envelope wrapping Asset[] plus page/limit/totalDocs/totalPages.
+  - name: User
+    schema: User
+    source: openapi/ready-player-me-auth-api-openapi.yml
+    identifier: id
+    fields: [id, token, refreshToken, partner]
+    operations: [createAnonymousUser, authStart, authLogin, authRefresh, getAvatarToken]
+  - name: AuthTokens
+    schema: AuthTokens
+    source: openapi/ready-player-me-auth-api-openapi.yml
+    kind: value-object
+    fields: [token, refreshToken]
+  - name: ColorPalette
+    schema: ColorPalette
+    source: openapi/ready-player-me-avatars-api-openapi.yml
+    kind: value-object
+    fields: [data]
+    operations: [getAvatarColors]
+  - name: Application
+    schema: null
+    source: derived from the X-APP-ID security scheme and Asset.applicationIds
+    identifier: applicationId
+    note: >-
+      The studio application is the top-level tenant of the whole surface — it is the API key
+      (X-APP-ID header), it scopes asset visibility (Asset.applicationIds, filterApplicationId),
+      and it appears on Avatar/User as `partner`. It has NO schema and NO operations of its own in
+      the published contract; it was managed from studio.readyplayer.me, which is now offline.
+relationships:
+  - from: Application
+    to: Avatar
+    type: has_many
+    via: Avatar.partner
+    confidence: medium
+    note: Avatar.partner carries the owning studio/application identifier.
+  - from: Application
+    to: User
+    type: has_many
+    via: User.partner
+    confidence: medium
+  - from: Application
+    to: Asset
+    type: has_many
+    via: Asset.applicationIds
+    confidence: high
+    note: Assets are explicitly scoped to one or more applications; listAssets accepts filterApplicationId.
+  - from: User
+    to: Avatar
+    type: has_many
+    via: Avatar.userId
+    confidence: high
+    note: listUserAvatars (GET /v1/avatars) returns the avatars belonging to the authenticated user.
+  - from: Avatar
+    to: User
+    type: belongs_to
+    via: Avatar.userId
+    confidence: high
+  - from: Avatar
+    to: Asset
+    type: has_many
+    via: Avatar.assets
+    confidence: high
+    note: >-
+      Avatar.assets is the equipped-asset map; updateAvatar (PATCH) and the AvatarUpdateRequest
+      payload mutate it. This is the central relationship of the whole product.
+  - from: AvatarTemplate
+    to: Avatar
+    type: has_many
+    via: createAvatarFromTemplate (templateId path parameter)
+    confidence: high
+  - from: AssetList
+    to: Asset
+    type: has_many
+    via: data[]
+    confidence: high
+  - from: User
+    to: AuthTokens
+    type: has_one
+    via: authLogin / authRefresh response
+    confidence: high
+gaps:
+  - >-
+    AvatarCreateRequest, AvatarUpdateRequest and ColorPalette all model their payload as an opaque
+    `data` object with no inner properties, so the equipped-asset structure is not typed in the
+    contract. The object reference that documented it is offline.
+  - No error schema exists anywhere in the definitions — no 4xx/5xx response is declared.
+  - Application/studio has no schema; it is inferable only from headers and foreign-key fields.
+render: null

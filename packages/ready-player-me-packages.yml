@@ -1,0 +1,136 @@
+generated: '2026-08-26'
+method: searched
+source: https://registry.npmjs.org/, https://api.github.com/orgs/readyplayerme
+specification: API Commons Packages
+specificationVersion: '0.1'
+provider: Ready Player Me
+providerId: ready-player-me
+description: >-
+  First-party Ready Player Me client libraries. Two packages are published to npm under the
+  @readyplayerme scope; the Unity, Unreal and mobile SDKs are distributed only from the
+  readyplayerme GitHub organization (Unity Package Manager git URL, Unreal plugin zip,
+  example projects) and therefore have no package-registry metadata endpoint. Currency is
+  recorded per entry from the registry / GitHub Releases API, read 2026-08-26.
+note: >-
+  Every package here wraps an API that is offline. Netflix acquired Ready Player Me in
+  December 2025 and the public platform — Avatar Creator, PlayerZero and the developer
+  APIs at api.readyplayer.me — was shut down on 2026-01-31. See
+  lifecycle/ready-player-me-lifecycle.yml. The newest first-party release in the whole set
+  predates the shutdown by six months, and nothing has shipped since; the GitHub
+  organization remains public and rpm-unity-sdk-core has been archived.
+registries_checked:
+  - registry: npm
+    endpoint: https://registry.npmjs.org/
+    result: 2 packages found under the @readyplayerme scope
+  - registry: npm-scope-search
+    endpoint: https://registry.npmjs.org/-/v1/search?text=scope:readyplayerme
+    result: total 0 (scope search returns nothing; packages resolve by exact name only)
+  - registry: github-releases
+    endpoint: https://api.github.com/repos/readyplayerme/{repo}/releases/latest
+    result: releases found for rpm-unity-sdk-core, rpm-unreal-sdk, visage, animation-library
+packages:
+  - name: '@readyplayerme/visage'
+    registry: npm
+    official: true
+    language: JavaScript
+    url: https://www.npmjs.com/package/@readyplayerme/visage
+    repository: https://github.com/readyplayerme/visage
+    version: 6.16.0
+    published: '2025-07-30'
+    description: React/three.js components for displaying Ready Player Me avatars and 3D models on the web.
+    note: Latest npm release 6.16.0 (2025-07-30); matches GitHub release tag v6.16.0. No release since the 2026-01-31 platform shutdown.
+  - name: '@readyplayerme/react-avatar-creator'
+    registry: npm
+    official: true
+    language: JavaScript
+    url: https://www.npmjs.com/package/@readyplayerme/react-avatar-creator
+    repository: https://github.com/readyplayerme/rpm-react-avatar-creator
+    version: 0.5.0
+    published: '2024-01-26'
+    description: React wrapper around the hosted Ready Player Me Avatar Creator iframe.
+    note: >-
+      Last published 2024-01-26. The component embeds the hosted Avatar Creator, which no longer
+      resolves — readyplayer.me has no A record as of 2026-08-26 — so the package is inert.
+  - name: rpm-unity-sdk-core
+    registry: github
+    official: true
+    language: C#
+    url: https://github.com/readyplayerme/rpm-unity-sdk-core
+    repository: https://github.com/readyplayerme/rpm-unity-sdk-core
+    version: v7.4.0
+    published: '2025-01-15'
+    description: Core Unity SDK — avatar loading, caching, Avatar Creator WebView, glTF import.
+    note: >-
+      Distributed via Unity Package Manager from the git URL, not a package registry, so there is
+      no registry metadata endpoint; version read from the GitHub Releases API. The repository is
+      ARCHIVED (read-only) as of the 2026-08-26 check.
+  - name: rpm-unreal-sdk
+    registry: github
+    official: true
+    language: C++
+    url: https://github.com/readyplayerme/rpm-unreal-sdk
+    repository: https://github.com/readyplayerme/rpm-unreal-sdk
+    version: v3.4.0
+    published: '2024-11-27'
+    description: Unreal Engine plugin for loading and rendering Ready Player Me avatars.
+    note: Unreal plugin, no package registry; version read from the GitHub Releases API.
+  - name: animation-library
+    registry: github
+    official: true
+    language: Unity/Unreal assets
+    url: https://github.com/readyplayerme/animation-library
+    repository: https://github.com/readyplayerme/animation-library
+    version: 1.0.0
+    published: '2023-06-16'
+    description: Ready Player Me animation library for full-body and half-body avatars.
+    note: Asset repository, no package registry; version read from the GitHub Releases API.
+  - name: content-validation-schemas
+    registry: github
+    official: true
+    language: JSON Schema
+    url: https://github.com/readyplayerme/content-validation-schemas
+    repository: https://github.com/readyplayerme/content-validation-schemas
+    version: null
+    published: null
+    note: >-
+      Checked 2026-08-26 — the repository publishes no GitHub release and no package-registry
+      entry, so there is no version to record. Last push 2024-12-03.
+  - name: Example-iOS-Swift
+    registry: github
+    official: true
+    language: Swift
+    url: https://github.com/readyplayerme/Example-iOS-Swift
+    version: null
+    published: null
+    note: Example integration project, not a distributed package; no releases published (checked 2026-08-26).
+  - name: Example-Android-Kotlin
+    registry: github
+    official: true
+    language: Kotlin
+    url: https://github.com/readyplayerme/Example-Android-Kotlin
+    version: null
+    published: null
+    note: Example integration project, not a distributed package; no releases published (checked 2026-08-26).
+  - name: Example-React-Native
+    registry: github
+    official: true
+    language: JavaScript
+    url: https://github.com/readyplayerme/Example-React-Native
+    version: null
+    published: null
+    note: Example integration project, not a distributed package; no releases published (checked 2026-08-26).
+absent:
+  - registry: PyPI
+    result: no first-party @readyplayerme / readyplayerme distribution
+  - registry: Maven Central
+    result: no first-party artifact
+  - registry: NuGet
+    result: no first-party package (Unity SDK ships via UPM git URL)
+  - registry: RubyGems
+    result: none
+  - registry: Packagist
+    result: none
+  - registry: crates.io
+    result: none
+  - registry: pkg.go.dev
+    result: none
