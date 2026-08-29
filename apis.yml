@@ -1,5 +1,17 @@
 aid: ready-player-me
 url: https://raw.githubusercontent.com/api-evangelist/ready-player-me/refs/heads/main/apis.yml
+deliveryModel:
+  model: saas
+  open_source: false
+  commercial: true
+  callable_host: false
+  label: Hosted service · you call their endpoint
+  confidence: medium
+  source:
+  - openapi
+  - pricing
+  generated: '2026-08-28'
+  method: derived
 specificationVersion: '0.23'
 apis:
 - aid: ready-player-me:ready-player-me-avatars-api
