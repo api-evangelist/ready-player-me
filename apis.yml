@@ -28,12 +28,12 @@ apis:
     type: OpenAPI
   - type: Overlay
     url: overlays/ready-player-me-avatars-api-overlay.yaml
-  description: 'Create, retrieve, update, and delete Ready Player Me cross-platform avatars. Includes template-based
-    creation, asset equipping, draft management, color palette discovery, and binary glTF (.glb) plus 2D PNG renders
-    used in Unity, Unreal, web, iOS, and Android. Supports A/T-pose, mesh LODs, texture atlases, ARKit / Oculus
-    morph targets, Draco and Meshopt compression. RETIRED: the public platform was shut down on 2026-01-31 following
-    Netflix''s December 2025 acquisition, and api.readyplayer.me no longer resolves — this entry is a historical
-    record of the contract, not a callable API.'
+  description: 'Create, retrieve, update, and delete Ready Player Me cross-platform avatars. Includes
+    template-based creation, asset equipping, draft management, color palette discovery, and binary glTF
+    (.glb) plus 2D PNG renders used in Unity, Unreal, web, iOS, and Android. Supports A/T-pose, mesh LODs,
+    texture atlases, ARKit / Oculus morph targets, Draco and Meshopt compression. RETIRED: the public
+    platform was shut down on 2026-01-31 following Netflix''s December 2025 acquisition, and api.readyplayer.me
+    no longer resolves — this entry is a historical record of the contract, not a callable API.'
 - aid: ready-player-me:ready-player-me-assets-api
   name: Ready Player Me Assets API
   tags:
@@ -48,11 +48,12 @@ apis:
     type: OpenAPI
   - type: Overlay
     url: overlays/ready-player-me-assets-api-overlay.yaml
-  description: 'Discover and retrieve avatar wearable assets — hair, outfits, headwear, glasses, facewear, footwear,
-    beards, costumes, and custom assets — scoped to an application and optionally filtered to those viewable or
-    usable by a specific user. Powers the wardrobe surface of the Ready Player Me Avatar Creator. RETIRED: the public
-    platform was shut down on 2026-01-31 following Netflix''s December 2025 acquisition, and api.readyplayer.me
-    no longer resolves — this entry is a historical record of the contract, not a callable API.'
+  description: 'Discover and retrieve avatar wearable assets — hair, outfits, headwear, glasses, facewear,
+    footwear, beards, costumes, and custom assets — scoped to an application and optionally filtered to
+    those viewable or usable by a specific user. Powers the wardrobe surface of the Ready Player Me Avatar
+    Creator. RETIRED: the public platform was shut down on 2026-01-31 following Netflix''s December 2025
+    acquisition, and api.readyplayer.me no longer resolves — this entry is a historical record of the
+    contract, not a callable API.'
 - aid: ready-player-me:ready-player-me-auth-api
   name: Ready Player Me Auth API
   tags:
@@ -70,10 +71,11 @@ apis:
     type: OpenAPI
   - type: Overlay
     url: overlays/ready-player-me-auth-api-overlay.yaml
-  description: 'Anonymous user creation, email-code login, token refresh, and avatar access tokens used by the Ready
-    Player Me Avatar Creator and SDKs. Authentication runs through each application''s per-studio subdomain. RETIRED:
-    the public platform was shut down on 2026-01-31 following Netflix''s December 2025 acquisition, and api.readyplayer.me
-    no longer resolves — this entry is a historical record of the contract, not a callable API.'
+  description: 'Anonymous user creation, email-code login, token refresh, and avatar access tokens used
+    by the Ready Player Me Avatar Creator and SDKs. Authentication runs through each application''s per-studio
+    subdomain. RETIRED: the public platform was shut down on 2026-01-31 following Netflix''s December
+    2025 acquisition, and api.readyplayer.me no longer resolves — this entry is a historical record of
+    the contract, not a callable API.'
 name: Ready Player Me
 tags:
 - Avatars
@@ -102,11 +104,13 @@ accessModel:
   - dns-probe
   generated: '2026-08-26'
   method: probed
-  note: 'Previously recorded as "Freemium / Self-serve signup" with try_now: true. Corrected 2026-08-26: sign-up,
-    Studio console and the APIs are all offline and their hosts do not resolve. See lifecycle/ready-player-me-lifecycle.yml.'
+  note: 'Previously recorded as "Freemium / Self-serve signup" with try_now: true. Corrected 2026-08-26:
+    sign-up, Studio console and the APIs are all offline and their hosts do not resolve. See lifecycle/ready-player-me-lifecycle.yml.'
 image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/ready-player-me.png
 access: 3rd-Party
 common:
+- type: Website
+  url: https://readyplayer.me
 - type: AgenticAccess
   url: agentic-access/ready-player-me-agentic-access.yml
 - type: Authentication
@@ -194,18 +198,19 @@ maintainers:
 - FN: Kin Lane
   email: info@apievangelist.com
   url: http://apievangelist.com
-description: 'Ready Player Me was a cross-game avatar platform: a hosted Avatar Creator plus REST APIs that produced
-  interoperable 3D character avatars as binary glTF (.glb) and 2D PNG renders for Unity, Unreal, web, iOS and Android.
-  The Avatars, Assets and Auth APIs covered draft/save avatar creation, template-based creation, wearable-asset
-  equipping and discovery, colour palettes, render precompilation and anonymous/email-code user authentication,
-  all scoped to a studio application via an X-APP-ID header. Netflix acquired the company in December 2025 and the
-  public platform - Avatar Creator, PlayerZero and the developer APIs at api.readyplayer.me - was shut down on 31
-  January 2026. As of 26 August 2026 readyplayer.me publishes MX and TXT records but no A record, and api.readyplayer.me,
-  docs.readyplayer.me and studio.readyplayer.me are NXDOMAIN, so every first-party developer surface is gone. Avatars
-  already exported as .glb files still load in any glTF 2.0 engine; the readyplayerme GitHub organization and two
-  npm packages remain public.'
+description: 'Ready Player Me was a cross-game avatar platform: a hosted Avatar Creator plus REST APIs
+  that produced interoperable 3D character avatars as binary glTF (.glb) and 2D PNG renders for Unity,
+  Unreal, web, iOS and Android. The Avatars, Assets and Auth APIs covered draft/save avatar creation,
+  template-based creation, wearable-asset equipping and discovery, colour palettes, render precompilation
+  and anonymous/email-code user authentication, all scoped to a studio application via an X-APP-ID header.
+  Netflix acquired the company in December 2025 and the public platform - Avatar Creator, PlayerZero and
+  the developer APIs at api.readyplayer.me - was shut down on 31 January 2026. As of 26 August 2026 readyplayer.me
+  publishes MX and TXT records but no A record, and api.readyplayer.me, docs.readyplayer.me and studio.readyplayer.me
+  are NXDOMAIN, so every first-party developer surface is gone. Avatars already exported as .glb files
+  still load in any glTF 2.0 engine; the readyplayerme GitHub organization and two npm packages remain
+  public.'
 created: '2026-05-25'
-modified: '2026-08-26'
+modified: '2026-09-16'
 x-enrichment:
   date: '2026-08-26'
   status: minimal
@@ -214,9 +219,9 @@ x-enrichment:
 x-coverage:
   state: none
   reason: defunct
-  detail: Netflix acquired Ready Player Me in December 2025 and shut the public platform down on 2026-01-31; the
-    retirement is now complete at the DNS layer, so readyplayer.me, api.readyplayer.me, docs.readyplayer.me and
-    studio.readyplayer.me all fail to resolve and there is no first-party surface left to read.
+  detail: Netflix acquired Ready Player Me in December 2025 and shut the public platform down on 2026-01-31;
+    the retirement is now complete at the DNS layer, so readyplayer.me, api.readyplayer.me, docs.readyplayer.me
+    and studio.readyplayer.me all fail to resolve and there is no first-party surface left to read.
   evidence:
   - url: https://api.readyplayer.me/openapi.json
     status: 0
