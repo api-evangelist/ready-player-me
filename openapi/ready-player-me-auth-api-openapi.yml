@@ -1,4 +1,4 @@
-openapi: 3.0.3
+openapi: 3.2.0
 info:
   title: Ready Player Me Assets Auth API
   description: 'List, filter, and retrieve Ready Player Me assets — hair, outfits, headwear,
@@ -7,9 +7,7 @@ info:
 
     equipped on avatars. Assets are scoped to an application (`X-APP-ID`) and can be
 
-    further filtered to those visible or usable by a specific user.
-
-    '
+    further filtered to those visible or usable by a specific user.'
   version: '1.0'
   contact:
     name: Ready Player Me Developers
@@ -127,6 +125,13 @@ paths:
           description: Avatar access token.
 components:
   schemas:
+    AuthTokens:
+      type: object
+      properties:
+        token:
+          type: string
+        refreshToken:
+          type: string
     User:
       type: object
       properties:
@@ -137,13 +142,6 @@ components:
         refreshToken:
           type: string
         partner:
-          type: string
-    AuthTokens:
-      type: object
-      properties:
-        token:
-          type: string
-        refreshToken:
           type: string
   securitySchemes:
     AppId:

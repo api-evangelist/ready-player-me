@@ -1,4 +1,4 @@
-openapi: 3.0.3
+openapi: 3.2.0
 info:
   title: Ready Player Me Assets Avatars API
   description: 'List, filter, and retrieve Ready Player Me assets — hair, outfits, headwear,
@@ -7,9 +7,7 @@ info:
 
     equipped on avatars. Assets are scoped to an application (`X-APP-ID`) and can be
 
-    further filtered to those visible or usable by a specific user.
-
-    '
+    further filtered to those visible or usable by a specific user.'
   version: '1.0'
   contact:
     name: Ready Player Me Developers
@@ -343,6 +341,29 @@ paths:
                 format: binary
 components:
   schemas:
+    AvatarTemplate:
+      type: object
+      properties:
+        id:
+          type: string
+        imageUrl:
+          type: string
+        gender:
+          type: string
+    AvatarCreateRequest:
+      type: object
+      properties:
+        data:
+          type: object
+          properties:
+            partner:
+              type: string
+            bodyType:
+              type: string
+            gender:
+              type: string
+            assets:
+              type: object
     ColorPalette:
       type: object
       properties:
@@ -353,16 +374,6 @@ components:
             items:
               type: string
               description: Hex color value.
-    AvatarUpdateRequest:
-      type: object
-      properties:
-        data:
-          type: object
-          properties:
-            assets:
-              type: object
-              additionalProperties:
-                type: string
     Avatar:
       type: object
       properties:
@@ -387,29 +398,16 @@ components:
           type: object
           additionalProperties:
             type: string
-    AvatarCreateRequest:
+    AvatarUpdateRequest:
       type: object
       properties:
         data:
           type: object
           properties:
-            partner:
-              type: string
-            bodyType:
-              type: string
-            gender:
-              type: string
             assets:
               type: object
-    AvatarTemplate:
-      type: object
-      properties:
-        id:
-          type: string
-        imageUrl:
-          type: string
-        gender:
-          type: string
+              additionalProperties:
+                type: string
   parameters:
     TemplateId:
       name: templateId
