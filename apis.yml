@@ -209,6 +209,7 @@ description: 'Ready Player Me was a cross-game avatar platform: a hosted Avatar 
   are NXDOMAIN, so every first-party developer surface is gone. Avatars already exported as .glb files
   still load in any glTF 2.0 engine; the readyplayerme GitHub organization and two npm packages remain
   public.'
+x-status: defunct
 created: '2026-05-25'
 modified: '2026-09-16'
 x-enrichment:
