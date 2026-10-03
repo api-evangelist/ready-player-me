@@ -340,20 +340,17 @@ paths:
                 type: string
                 format: binary
 components:
-  parameters:
-    AvatarId:
-      name: avatarId
-      in: path
-      required: true
-      schema:
-        type: string
-    TemplateId:
-      name: templateId
-      in: path
-      required: true
-      schema:
-        type: string
   schemas:
+    ColorPalette:
+      type: object
+      properties:
+        data:
+          type: object
+          additionalProperties:
+            type: array
+            items:
+              type: string
+              description: Hex color value.
     AvatarCreateRequest:
       type: object
       properties:
@@ -368,15 +365,6 @@ components:
               type: string
             assets:
               type: object
-    AvatarTemplate:
-      type: object
-      properties:
-        id:
-          type: string
-        imageUrl:
-          type: string
-        gender:
-          type: string
     Avatar:
       type: object
       properties:
@@ -411,16 +399,28 @@ components:
               type: object
               additionalProperties:
                 type: string
-    ColorPalette:
+    AvatarTemplate:
       type: object
       properties:
-        data:
-          type: object
-          additionalProperties:
-            type: array
-            items:
-              type: string
-              description: Hex color value.
+        id:
+          type: string
+        imageUrl:
+          type: string
+        gender:
+          type: string
+  parameters:
+    AvatarId:
+      name: avatarId
+      in: path
+      required: true
+      schema:
+        type: string
+    TemplateId:
+      name: templateId
+      in: path
+      required: true
+      schema:
+        type: string
   securitySchemes:
     AppId:
       type: apiKey
