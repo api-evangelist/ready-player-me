@@ -351,20 +351,25 @@ components:
             items:
               type: string
               description: Hex color value.
-    AvatarCreateRequest:
+    AvatarTemplate:
+      type: object
+      properties:
+        id:
+          type: string
+        imageUrl:
+          type: string
+        gender:
+          type: string
+    AvatarUpdateRequest:
       type: object
       properties:
         data:
           type: object
           properties:
-            partner:
-              type: string
-            bodyType:
-              type: string
-            gender:
-              type: string
             assets:
               type: object
+              additionalProperties:
+                type: string
     Avatar:
       type: object
       properties:
@@ -389,25 +394,20 @@ components:
           type: object
           additionalProperties:
             type: string
-    AvatarUpdateRequest:
+    AvatarCreateRequest:
       type: object
       properties:
         data:
           type: object
           properties:
+            partner:
+              type: string
+            bodyType:
+              type: string
+            gender:
+              type: string
             assets:
               type: object
-              additionalProperties:
-                type: string
-    AvatarTemplate:
-      type: object
-      properties:
-        id:
-          type: string
-        imageUrl:
-          type: string
-        gender:
-          type: string
   parameters:
     AvatarId:
       name: avatarId

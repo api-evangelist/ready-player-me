@@ -147,24 +147,6 @@ components:
       schema:
         type: string
   schemas:
-    AssetList:
-      type: object
-      properties:
-        data:
-          type: array
-          items:
-            $ref: '#/components/schemas/Asset'
-        pagination:
-          type: object
-          properties:
-            page:
-              type: integer
-            limit:
-              type: integer
-            totalPages:
-              type: integer
-            totalDocs:
-              type: integer
     Asset:
       type: object
       properties:
@@ -184,6 +166,24 @@ components:
           type: array
           items:
             type: string
+    AssetList:
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/Asset'
+        pagination:
+          type: object
+          properties:
+            page:
+              type: integer
+            limit:
+              type: integer
+            totalPages:
+              type: integer
+            totalDocs:
+              type: integer
   securitySchemes:
     AppId:
       type: apiKey
