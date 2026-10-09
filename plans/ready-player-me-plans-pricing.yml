@@ -94,3 +94,38 @@ plans:
       - name: Dedicated solutions engineering
       - name: SSO and SOC 2 controls
       - name: Co-marketing and licensing arrangements
+x-canonical:
+  generated: '2026-10-08'
+  vocabulary: all/0-working/economics/plans-canonical.yml
+  models:
+  - metered
+  - negotiated
+  - seat
+  units:
+  - negotiated
+  - seat
+  plans:
+  - name: Free
+    access: free
+    model: seat
+    model_how: derived
+    units:
+    - seat
+    periods:
+    - month
+  - name: Studio
+    access: other
+    model: metered
+    model_how: stated
+    units:
+    - seat
+    periods:
+    - month
+  - name: Enterprise
+    access: negotiated
+    model: negotiated
+    model_how: stated
+    units:
+    - negotiated
+    periods:
+    - year
