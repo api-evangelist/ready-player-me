@@ -340,26 +340,20 @@ paths:
                 type: string
                 format: binary
 components:
+  parameters:
+    AvatarId:
+      name: avatarId
+      in: path
+      required: true
+      schema:
+        type: string
+    TemplateId:
+      name: templateId
+      in: path
+      required: true
+      schema:
+        type: string
   schemas:
-    ColorPalette:
-      type: object
-      properties:
-        data:
-          type: object
-          additionalProperties:
-            type: array
-            items:
-              type: string
-              description: Hex color value.
-    AvatarTemplate:
-      type: object
-      properties:
-        id:
-          type: string
-        imageUrl:
-          type: string
-        gender:
-          type: string
     AvatarUpdateRequest:
       type: object
       properties:
@@ -370,6 +364,30 @@ components:
               type: object
               additionalProperties:
                 type: string
+    AvatarCreateRequest:
+      type: object
+      properties:
+        data:
+          type: object
+          properties:
+            partner:
+              type: string
+            bodyType:
+              type: string
+            gender:
+              type: string
+            assets:
+              type: object
+    ColorPalette:
+      type: object
+      properties:
+        data:
+          type: object
+          additionalProperties:
+            type: array
+            items:
+              type: string
+              description: Hex color value.
     Avatar:
       type: object
       properties:
@@ -394,33 +412,15 @@ components:
           type: object
           additionalProperties:
             type: string
-    AvatarCreateRequest:
+    AvatarTemplate:
       type: object
       properties:
-        data:
-          type: object
-          properties:
-            partner:
-              type: string
-            bodyType:
-              type: string
-            gender:
-              type: string
-            assets:
-              type: object
-  parameters:
-    AvatarId:
-      name: avatarId
-      in: path
-      required: true
-      schema:
-        type: string
-    TemplateId:
-      name: templateId
-      in: path
-      required: true
-      schema:
-        type: string
+        id:
+          type: string
+        imageUrl:
+          type: string
+        gender:
+          type: string
   securitySchemes:
     AppId:
       type: apiKey

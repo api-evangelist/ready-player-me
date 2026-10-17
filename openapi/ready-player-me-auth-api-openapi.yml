@@ -125,13 +125,6 @@ paths:
           description: Avatar access token.
 components:
   schemas:
-    AuthTokens:
-      type: object
-      properties:
-        token:
-          type: string
-        refreshToken:
-          type: string
     User:
       type: object
       properties:
@@ -142,6 +135,13 @@ components:
         refreshToken:
           type: string
         partner:
+          type: string
+    AuthTokens:
+      type: object
+      properties:
+        token:
+          type: string
+        refreshToken:
           type: string
   securitySchemes:
     AppId:
