@@ -1,4 +1,4 @@
-# Ready Player Me (ready-player-me)
+# Ready Player Me
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -64,124 +64,130 @@
 > Full detail: **[Where this data comes from](https://apievangelist.com/about/where-our-data-comes-from)**
 <!-- API-EVANGELIST-PROVENANCE:END -->
 
-**APIs.json:** [https://raw.githubusercontent.com/api-evangelist/ready-player-me/refs/heads/main/apis.yml](https://raw.githubusercontent.com/api-evangelist/ready-player-me/refs/heads/main/apis.yml)
+> **No longer operating.** This company or product has shut down, been discontinued, or been deprecated. This profile is kept as a historical record and is not maintained or rated.
 
-## Scope
+Ready Player Me was a cross-game avatar platform: a hosted Avatar Creator plus REST APIs that produced interoperable 3D character avatars as binary glTF (.glb) and 2D PNG renders for Unity, Unreal, web, iOS and Android. The Avatars, Assets and Auth APIs covered draft/save avatar creation, template-based creation, wearable-asset equipping and discovery, colour palettes, render precompilation and anonymous/email-code user authentication, all scoped to a studio application via an X-APP-ID header. Netflix acquired the company in December 2025 and the public platform - Avatar Creator, PlayerZero and the developer APIs at api.readyplayer.me - was shut down on 31 January 2026. As of 26 August 2026 readyplayer.me publishes MX and TXT records but no A record, and api.readyplayer.me, docs.readyplayer.me and studio.readyplayer.me are NXDOMAIN, so every first-party developer surface is gone. Avatars already exported as .glb files still load in any glTF 2.0 engine; the readyplayerme GitHub organization and two npm packages remain public.
 
-- **Access:** 3rd-Party
+**Areas:** Avatars · 3D · Gaming · Virtual Reality · Augmented Reality · Metaverse · glTF · Cross-Platform · Unity · Unreal · Web · Mobile
 
-## Tags
+## Ready Player Me on APIs.io (historical record)
 
-- Avatars
-- 3D
-- Gaming
-- VR
-- AR
-- Metaverse
-- glTF
-- Cross-Platform
-- Unity
-- Unreal
-- Web
-- Mobile
+Everything profiled for Ready Player Me is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/ready-player-me/](https://apis.io/providers/ready-player-me/)** — or go straight to one of the APIs or properties below.
 
-## APIs
+### APIs (3)
 
-### Ready Player Me Avatars API
+- [Ready Player Me Avatars API](https://apis.io/apis/ready-player-me/ready-player-me-avatars-api/) — Create, retrieve, update, and delete Ready Player Me cross-platform avatars. Includes template-based creation, asset equipping, draft management, color…
+- [Ready Player Me Assets API](https://apis.io/apis/ready-player-me/ready-player-me-assets-api/) — Discover and retrieve avatar wearable assets — hair, outfits, headwear, glasses, facewear, footwear, beards, costumes, and custom assets — scoped to an…
+- [Ready Player Me Auth API](https://apis.io/apis/ready-player-me/ready-player-me-auth-api/) — Anonymous user creation, email-code login, token refresh, and avatar access tokens used by the Ready Player Me Avatar Creator and SDKs. Authentication runs…
 
-Create, retrieve, update, and delete Ready Player Me cross-platform avatars. Includes template-based creation, asset equipping, draft management, color palette discovery, and binary glTF (.glb) plus 2D PNG renders used in Unity, Unreal, web, iOS, and Android. Supports A/T-pose, mesh LODs, texture atlases, ARKit / Oculus morph targets, Draco and Meshopt compression.
+### Published properties
 
-- **Human URL:** [https://docs.readyplayer.me/ready-player-me/api-reference](https://docs.readyplayer.me/ready-player-me/api-reference)
-- **Base URL:** `https://api.readyplayer.me/`
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-#### Tags
+#### Agentic access (1)
 
-- Avatars
-- 3D
-- GLB
-- Gaming
+Which operations an agent can call, which act, and which need a human in the loop.
 
-#### Properties
+- [Ready Player Me Agentic Access](https://apis.io/agentic-access/ready-player-me/ready-player-me-agentic-access/)
 
-- [Documentation](https://docs.readyplayer.me/ready-player-me/api-reference)
-- [OpenAPI](openapi/ready-player-me-avatars-api-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/ready-player-me-avatars-api.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/ready-player-me-avatars-api.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+#### JSON Schema (2)
 
-### Ready Player Me Assets API
+The data models the API reads and writes.
 
-Discover and retrieve avatar wearable assets — hair, outfits, headwear, glasses, facewear, footwear, beards, costumes, and custom assets — scoped to an application and optionally filtered to those viewable or usable by a specific user. Powers the wardrobe surface of the Ready Player Me Avatar Creator.
+- [Ready Player Me Asset](https://apis.io/schemas/ready-player-me/ready-player-me-asset/)
+- [Ready Player Me Avatar](https://apis.io/schemas/ready-player-me/ready-player-me-avatar/)
 
-- **Human URL:** [https://docs.readyplayer.me/ready-player-me/api-reference/rest-api/assets](https://docs.readyplayer.me/ready-player-me/api-reference/rest-api/assets)
-- **Base URL:** `https://api.readyplayer.me/`
+#### JSON Structure (1)
 
-#### Tags
+Data models expressed in JSON Structure.
 
-- Assets
-- Wearables
-- 3D
-- Gaming
+- [Ready Player Me Avatar Structure](https://apis.io/json-structure/ready-player-me/ready-player-me-avatar-structure/)
 
-#### Properties
+#### JSON-LD (1)
 
-- [Documentation](https://docs.readyplayer.me/ready-player-me/api-reference/rest-api/assets)
-- [OpenAPI](openapi/ready-player-me-assets-api-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/ready-player-me-assets-api.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/ready-player-me-assets-api.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+Linked-data contexts for the provider's vocabulary.
 
-### Ready Player Me Auth API
+- [Ready Player Me Context](https://apis.io/jsonld/ready-player-me/ready-player-me-context/)
 
-Anonymous user creation, email-code login, token refresh, and avatar access tokens used by the Ready Player Me Avatar Creator and SDKs. Authentication runs through each application's per-studio subdomain.
+#### Vocabulary (1)
 
-- **Human URL:** [https://docs.readyplayer.me/ready-player-me/api-reference/rest-api/users](https://docs.readyplayer.me/ready-player-me/api-reference/rest-api/users)
-- **Base URL:** `https://api.readyplayer.me/`
+The provider's domain terms, defined.
 
-#### Tags
+- [Ready Player Me Vocabulary](https://apis.io/vocabularies/ready-player-me/ready-player-me-vocabulary/)
 
-- Authentication
-- Identity
-- Users
+#### Examples (2)
 
-#### Properties
+Example requests and responses.
 
-- [Documentation](https://docs.readyplayer.me/ready-player-me/api-reference/rest-api/users)
-- [OpenAPI](openapi/ready-player-me-auth-api-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/ready-player-me-auth-api.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/ready-player-me-auth-api.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+- [Ready Player Me Asset Example](https://apis.io/examples/ready-player-me/ready-player-me-asset-example/)
+- [Ready Player Me Avatar Example](https://apis.io/examples/ready-player-me/ready-player-me-avatar-example/)
 
-## Common Properties
+#### Collections (3)
 
-- [Portal](https://readyplayer.me/)
-- [Documentation](https://docs.readyplayer.me/)
-- [Documentation](https://docs.readyplayer.me/ready-player-me/api-reference)
-- [Documentation](https://docs.readyplayer.me/ready-player-me/integration-guides)
-- [Portal](https://studio.readyplayer.me/)
-- [Portal](https://readyplayer.me/developers)
-- [Portal](https://readyplayer.me/hub)
-- [Blog](https://readyplayer.me/blog)
-- [Github](https://github.com/readyplayerme)
-- [LinkedIn](https://www.linkedin.com/company/ready-player-me/)
-- [Twitter](https://twitter.com/readyplayerme)
-- [YouTube](https://www.youtube.com/@readyplayerme)
-- [Discord](https://discord.com/invite/readyplayerme)
-- [Support](mailto:support@readyplayer.me)
-- [SDK](https://github.com/readyplayerme/rpm-unity-sdk-core)
-- [SDK](https://github.com/readyplayerme/rpm-unreal-sdk)
-- [SDK](https://github.com/readyplayerme/visage)
-- [SDK](https://github.com/readyplayerme/rpm-react-avatar-creator)
-- [SDK](https://github.com/readyplayerme/Example-iOS-Swift)
-- [SDK](https://github.com/readyplayerme/Example-Android-Kotlin)
-- [SDK](https://github.com/readyplayerme/Example-React-Native)
-- [JSON Schema](https://github.com/readyplayerme/content-validation-schemas) — [JSON Schema](https://json-schema.org/specification)
-- [Tools](https://github.com/readyplayerme/animation-library)
-- [Plans](plans/ready-player-me-plans-pricing.yml)
-- [Rate Limits](rate-limits/ready-player-me-rate-limits.yml)
-- [Fin Ops](finops/ready-player-me-finops.yml)
-- [Vocabulary](vocabulary/ready-player-me-vocabulary.yml)
-- [JSON-LD](json-ld/ready-player-me-context.jsonld) — [JSON-LD](https://www.w3.org/TR/json-ld11/)
+Postman and Open Collection request collections.
 
-## Maintainers
+- [Ready Player Me Assets API](https://apis.io/collections/ready-player-me/open-ready-player-me-assets-api/)
+- [Ready Player Me Assets Auth API](https://apis.io/collections/ready-player-me/open-ready-player-me-auth-api/)
+- [Ready Player Me Assets Avatars API](https://apis.io/collections/ready-player-me/open-ready-player-me-avatars-api/)
 
-**FN:** Kin Lane
-**Email:** info@apievangelist.com
-**URL:** http://apievangelist.com
+#### Overlays (3)
+
+OpenAPI overlays, including conversational phrasing for each operation.
+
+- [Ready Player Me Assets Api Overlay](https://apis.io/overlays/ready-player-me/ready-player-me-assets-api-overlay/)
+- [Ready Player Me Auth Api Overlay](https://apis.io/overlays/ready-player-me/ready-player-me-auth-api-overlay/)
+- [Ready Player Me Avatars Api Overlay](https://apis.io/overlays/ready-player-me/ready-player-me-avatars-api-overlay/)
+
+#### Governance rules (2)
+
+Spectral rulesets for the provider's contracts.
+
+- [Ready Player Me — jsonschema rules](https://apis.io/rules/ready-player-me/ready-player-me-jsonschema-spectral-rules/)
+- [Ready Player Me API Rules](https://apis.io/rules/ready-player-me/ready-player-me-rules/)
+
+#### Security (1)
+
+Authentication, trust centre, and vulnerability disclosure.
+
+- [Ready Player Me Authentication](https://apis.io/security/ready-player-me/ready-player-me-authentication/)
+
+#### Plans and pricing (1)
+
+Published plans, tiers and prices.
+
+- [Ready Player Me Plans Pricing](https://apis.io/plans/ready-player-me/ready-player-me-plans-pricing/)
+
+#### Rate limits (1)
+
+Published request limits.
+
+- [Ready Player Me Rate Limits](https://apis.io/rate-limits/ready-player-me/ready-player-me-rate-limits/)
+
+#### FinOps (1)
+
+What the API costs to run, by operation.
+
+- [Ready Player Me Finops](https://apis.io/finops/ready-player-me/ready-player-me-finops/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
+
+- [Website](https://readyplayer.me)
+- [GitHub](https://github.com/readyplayerme)
+
+## API Evangelist rating
+
+**Not rated** — this company is recorded as no longer operating, so no score is published. If it is in fact operating, say so on this repository and it will be re-profiled.
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Ready Player Me: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/ready-player-me/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
